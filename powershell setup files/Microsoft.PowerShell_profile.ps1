@@ -1,4 +1,5 @@
-function dir-tree {
+function dirTree
+{
     <#
     .SYNOPSIS
     Prints a directory's subtree structure, optionally with exclusions.
@@ -67,7 +68,8 @@ function dir-tree {
     )
 
     # Embedded recursive helper function for drawing the tree.
-    function _tree_helper {
+    function _tree_helper
+    {
 
         param(
             [string]$literalPath,
@@ -78,21 +80,36 @@ function dir-tree {
         $items = Get-ChildItem -Directory:(-not $IncludeFiles) -LiteralPath $LiteralPath -Force:$Force
 
         # Apply exclusion filter(s), if specified.
-        if ($Exclude -and $items) {
+        if ($Exclude -and $items)
+        {
             $items = $items.Where({ $name = $_.Name; -not $Exclude.Where({ $name -like $_ },'First') })
         }
 
-        if (-not $items) { return } # no subdirs. / files, we're done
+        if (-not $items)
+        { return
+        } # no subdirs. / files, we're done
 
         $i = 0
-        foreach ($item in $items) {
+        foreach ($item in $items)
+        {
             $isLastSibling =++ $i -eq $items.Count
             # Print this dir.
-            $prefix + $(if ($isLastSibling) { $chars.last } else { $chars.interior }) + $chars.hline * ($indentCount - 1) + $item.Name
+            $prefix + $(if ($isLastSibling)
+                { $chars.last
+                } else
+                { $chars.interior
+                }) + $chars.hline * ($indentCount - 1) + $item.Name
             # Recurse, if it's a subdir (rather than a file).
-            if ($item.PSIsContainer) {
-                if ($item.LinkType) { Write-Warning "Not following dir. symlink: $item"; continue }
-                $subPrefix = $prefix + $(if ($isLastSibling) { $chars.space * $indentCount } else { $chars.vline + $chars.space * ($indentCount - 1) })
+            if ($item.PSIsContainer)
+            {
+                if ($item.LinkType)
+                { Write-Warning "Not following dir. symlink: $item"; continue
+                }
+                $subPrefix = $prefix + $(if ($isLastSibling)
+                    { $chars.space * $indentCount
+                    } else
+                    { $chars.vline + $chars.space * ($indentCount - 1)
+                    })
                 _tree_helper $item.FullName $subPrefix
             }
         }
@@ -110,7 +127,9 @@ function dir-tree {
 
     # Resolve the path to a full path and verify its existence and expected type.
     $literalPath = (Resolve-Path $Path).Path
-    if (-not $literalPath -or -not (Test-Path -PathType Container -LiteralPath $literalPath) -or $literalPath.Count -gt 1) { throw "$Path must resolve to a single, existing directory." }
+    if (-not $literalPath -or -not (Test-Path -PathType Container -LiteralPath $literalPath) -or $literalPath.Count -gt 1)
+    { throw "$Path must resolve to a single, existing directory."
+    }
 
     # Print the target path.
     $literalPath
@@ -122,7 +141,8 @@ function dir-tree {
 
 
 
-function linux {
+function linux
+{
     param (
         [Parameter(HelpMessage = "Restart the 'Ubuntu' distribution before starting.")]
         [switch]$Restart,
@@ -133,14 +153,16 @@ function linux {
 
     $distroName = "Ubuntu"
 
-    if ($Kill) {
+    if ($Kill)
+    {
         Write-Host "Terminating $distroName..."
         wsl --terminate $distroName
         wsl --shutdown
         return # Stop execution here
     }
 
-    if ($Restart) {
+    if ($Restart)
+    {
         Write-Host "Restarting $distroName..."
         wsl --terminate $distroName
     }
@@ -151,15 +173,18 @@ function linux {
 }
 
 
-function ps-restart {
+function psRestart
+{
     param (
         # If this switch is included, the new session will be as admin
         [switch]$Admin
     )
-    if ($Admin) {
+    if ($Admin)
+    {
         # Run this if 'ps-restart -Admin' is typed
         Start-Process -FilePath "pwsh.exe" -ArgumentList "-NoExit" -Verb RunAs
-    } else {
+    } else
+    {
         # Run this if just 'ps-restart' is typed
         Start-Process -FilePath "pwsh.exe" -ArgumentList "-NoExit"
     }
@@ -226,39 +251,81 @@ Set-PSReadLineOption -MaximumHistoryCount 10000
 
 
 # git commands
-function git-add {
-    git add .
+function g
+{
+    param (
+        [Parameter(HelpMessage = "Add changes to the staging area.")]
+        [switch]$Add,
+
+        [Parameter(HelpMessage = "Commit changes to the repository.")]
+        [switch]$AddCommit,
+
+        [Parameter(HelpMessage = "Commit and push changes to the repository.")]
+        [switch]$AddCommitPush,
+
+        [Parameter(HelpMessage = "Show the status of the repository. (-Status or blank")]
+        [switch]$Status,
+
+        [string]$msg
+    )
+    if ($Add)
+    {
+        git add .
+        return
+    }
+    if ($AddCommit)
+    {
+        g -Add
+        git commit -m "$msg"
+        return
+    }
+    if ($AddCommitPush)
+    {
+        g -AddCommit "$msg"
+        git push
+        return
+    }
+    # if ($Status)
+    # {
+    git status
+    # return
+    # }
+
 }
-function git-add-commit {
-    git-add
-    git commit -m "$args"
-}
-function git-add-commit-push {
-    git-add-commit "$args"
-    git push
-}
-function gs { git status }
+
+
 ###################################################
 ###################################################
-function y {
+function y
+{
     $tmp = [System.IO.Path]::GetTempFileName()
     yazi $args --cwd-file = "$tmp"
     $cwd = Get-Content -Path $tmp -Encoding UTF8
-    if (-not [String]::IsNullOrEmpty($cwd) -and $cwd -ne $PWD.Path) {
+    if (-not [String]::IsNullOrEmpty($cwd) -and $cwd -ne $PWD.Path)
+    {
         Set-Location -LiteralPath ([System.IO.Path]::GetFullPath($cwd))
     }
     Remove-Item -Path $tmp
 }
 
 
-function es_ {
+function findES
+{
     param (
+        [Parameter(HelpMessage = "search in this location only")]
+        [switch]$Here,
+        [switch]$Global,
         [string]$Query
     )
-    # Make sure 'es.exe' is in your system's PATH
-    # The '-p' flag tells Everything to match full paths
-    # The '-r' flag tells Everything to search for subfolders and files in the specified path
-    & es.exe -path "." $Query
+    if ($Here)
+    {
+        # es.exe -path "[Environment]::CurrentDirectory"  $Query
+        & es.exe -path "." $Query
+        return
+
+    }
+    # Global or blank
+    es.exe $Query
 }
 
 # # colored path, user, etc.
