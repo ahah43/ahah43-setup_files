@@ -1,0 +1,44 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "vim_mode": false,
+  "base_keymap": "VSCode",
+  "agent": {
+    "default_model": {
+      "provider": "google",
+      "model": "gemini-2.5-flash"
+    },
+    "model_parameters": []
+  },
+  "buffer_font_family": "JetBrainsMono NF",
+  "ui_font_family": "JetBrainsMono NF",
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "One Dark"
+  },
+  "lsp": {
+    "powershell-es": {
+      "binary": {
+        "path": "pwsh.exe",
+        "arguments": [
+          "-NoLogo",
+          "-NoProfile",
+          "-Command",
+          "C:\\Users\\AHAH43\\AppData\\Local\\Zed\\extensions\\work\\powershell\\powershell-es-v4.4.0\\PowerShellEditorServices\\Start-EditorServices.ps1",
+          "-Stdio",
+          "-SessionDetailsPath",
+          "C:\\Users\\AHAH43\\AppData\\Local\\Zed\\extensions\\work\\powershell\\powershell-es-v4.4.0\\PowerShellEditorServices\\powershell-es.session.json"
+        ]
+      }
+    }
+  }
+}
