@@ -59,7 +59,12 @@ function Update-ProfileFromGitHub
 
 function Update-ohMyPosh-json
 {
-    Write-Host "Rebuilding profile cache..." -ForegroundColor Cyan
+    if (-not (Get-Command oh-my-posh -ErrorAction SilentlyContinue))
+    {
+        Write-Warning "oh-my-posh not found. Skipping prompt cache."
+        return
+    }
+    # Write-Host "Rebuilding profile cache..." -ForegroundColor Cyan
     $themeCache = "$cacheDir\ahah43-blue-owl.omp.json"
     $remoteTheme = "https://raw.githubusercontent.com/ahah43/ahah43-setup_files/main/oh-my-posh%20setup/ahah43-blue-owl.omp.json"
 
@@ -90,21 +95,56 @@ function Update-ohMyPosh-json
             return
         }
 
-        Write-Warning "Using last cached local theme."
+        Write-Warning "Updated Using last cached local theme."
     }
 
     oh-my-posh init pwsh --config "$themeCache" > "$cacheDir\posh-init.ps1"
     Write-Host "oh-my-posh theme Cache update complete." -ForegroundColor Cyan
 }
+
+function Update-uv
+{
+    if (-not (Get-Command uv -ErrorAction SilentlyContinue))
+    {
+        Write-Warning "uv not found. Skipping prompt cache."
+        return
+    }
+    uv generate-shell-completion powershell > "$cacheDir\uv-completion.ps1"
+    Write-Host "uv Cache update complete." -ForegroundColor Cyan
+
+}
+function Update-uvx
+{
+    if (-not (Get-Command uvx -ErrorAction SilentlyContinue))
+    {
+        Write-Warning "uvx not found. Skipping prompt cache."
+        return
+    }
+    uvx --generate-shell-completion powershell > "$cacheDir\uvx-completion.ps1"
+    Write-Host "uvx Cache update complete." -ForegroundColor Cyan
+}
+
+function Update-scoopSearch
+{
+    if (-not (Get-Command scoop-search -ErrorAction SilentlyContinue))
+    {
+        Write-Warning "scoop-search not found. Skipping prompt cache."
+        return
+    }
+    & scoop-search --hook > "$cacheDir\scoop-search-hook.ps1"
+    Write-Host "scoop-search Cache update complete." -ForegroundColor Cyan
+}
+
 function Update-Cache
 {
-
+    Write-Host "Rebuilding profile cache..." -ForegroundColor Cyan
     Update-ohMyPosh-json
-    uv generate-shell-completion powershell > "$cacheDir\uv-completion.ps1"
-    uvx --generate-shell-completion powershell > "$cacheDir\uvx-completion.ps1"
-    & scoop-search --hook > "$cacheDir\scoop-search-hook.ps1"
-
+    Update-uv
+    Update-uvx
+    Update-scoopSearch
     Write-Host "Cache update complete." -ForegroundColor Cyan
+    Write-Warning "tip: Run this command to restart PowerShell: psRestart"
+
 }
 
 
@@ -115,14 +155,47 @@ if (-not (Test-Path "$cacheDir\posh-init.ps1"))
 }
 
 # LOAD CACHED SETTINGS (Ultra Fast)
-. "$cacheDir\posh-init.ps1"
-. "$cacheDir\scoop-search-hook.ps1"
-. "$cacheDir\uv-completion.ps1"
-. "$cacheDir\uvx-completion.ps1"
+function LoadCachedSettingsFile
+{
+    param(
+        [Parameter(Mandatory)]
+        [string]$CachedFilePath,
+
+        [Parameter(Mandatory)]
+        [string]$RequiredCommand
+    )
+
+    if (-not (Get-Command $RequiredCommand -ErrorAction SilentlyContinue))
+    {
+        Write-Warning "Skipping $CachedFilePath (missing dependency: $RequiredCommand)"
+        return
+    }
+
+    if (-not (Test-Path $CachedFilePath))
+    {
+        Write-Warning "Cached file not found: $CachedFilePath"
+        return
+    }
+
+    try
+    {
+        . $CachedFilePath
+    } catch
+    {
+        Write-Warning "Failed to load cached file: $CachedFilePath"
+        Write-Verbose $_
+    }
+}
+
+
+loadCachedSettingsFile -CachedFilePath "$cacheDir\posh-init.ps1" -RequiredCommand "oh-my-posh"
+loadCachedSettingsFile -CachedFilePath "$cacheDir\scoop-search-hook.ps1" -RequiredCommand "scoop-search"
+loadCachedSettingsFile -CachedFilePath "$cacheDir\uv-completion.ps1" -RequiredCommand "uv"
+loadCachedSettingsFile -CachedFilePath "$cacheDir\uvx-completion.ps1" -RequiredCommand "uvx"
 
 
 $lastUpdate = (Get-Item "$cacheDir\posh-init.ps1").LastWriteTime
-if ($lastUpdate -lt (Get-Date).AddDays(-1))
+if ($lastUpdate -lt (Get-Date).AddDays(-2))
 {
     Update-Cache
 }
