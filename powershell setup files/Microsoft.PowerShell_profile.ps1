@@ -1,3 +1,76 @@
+$cacheDir = "$HOME\.ps_cache"
+
+
+function Update-Cache
+{
+    Write-Host "Rebuilding profile cache..." -ForegroundColor Cyan
+    $themeCache = "$cacheDir\ahah43-blue-owl.omp.json"
+    $remoteTheme = "https://raw.githubusercontent.com/ahah43/ahah43-setup_files/main/oh-my-posh%20setup/ahah43-blue-owl.omp.json"
+
+    if (-not (Test-Path $cacheDir))
+    {
+        New-Item -ItemType Directory -Path $cacheDir -Force | Out-Null
+    }
+
+    Write-Host "Checking GitHub for updated theme..." -NoNewline
+
+    try
+    {
+        Invoke-WebRequest `
+            -Uri $remoteTheme `
+            -OutFile $themeCache `
+            -UseBasicParsing `
+            -TimeoutSec 5 `
+            -ErrorAction Stop
+
+        Write-Host " Updated." -ForegroundColor Green
+    } catch
+    {
+        Write-Host " Offline." -ForegroundColor Yellow
+
+        if (-not (Test-Path $themeCache))
+        {
+            Write-Error "No local theme cache found and GitHub unreachable."
+            return
+        }
+
+        Write-Warning "Using last cached local theme."
+    }
+
+    oh-my-posh init pwsh --config "$themeCache" > "$cacheDir\posh-init.ps1"
+
+    uv generate-shell-completion powershell > "$cacheDir\uv-completion.ps1"
+    uvx --generate-shell-completion powershell > "$cacheDir\uvx-completion.ps1"
+    & scoop-search --hook > "$cacheDir\scoop-search-hook.ps1"
+
+    Write-Host "Cache update complete." -ForegroundColor Cyan
+}
+
+
+if (-not (Test-Path "$cacheDir\posh-init.ps1"))
+{
+    Write-Host "Initial setup: Generating profile cache..." -ForegroundColor Yellow
+    Update-Cache
+}
+
+# LOAD CACHED SETTINGS (Ultra Fast)
+. "$cacheDir\posh-init.ps1"
+. "$cacheDir\scoop-search-hook.ps1"
+. "$cacheDir\uv-completion.ps1"
+. "$cacheDir\uvx-completion.ps1"
+
+
+$lastUpdate = (Get-Item "$cacheDir\posh-init.ps1").LastWriteTime
+if ($lastUpdate -lt (Get-Date).AddDays(-1))
+{
+    Update-Cache
+}
+
+# Write-Host "--- Start Profile Load ---" -ForegroundColor Cyan
+# $ProfileTimer = [System.Diagnostics.Stopwatch]::StartNew()
+
+# Write-Host ("(' ProfileTimer  ',{1})," -f $MyInvocation.ScriptLineNumber, $ProfileTimer.ElapsedMilliseconds)
+
 function dirTree
 {
     <#
@@ -139,7 +212,7 @@ function dirTree
 
 }
 
-
+# Write-Host ("(' dirTree  ',{1})," -f $MyInvocation.ScriptLineNumber, $ProfileTimer.ElapsedMilliseconds)
 
 function linux
 {
@@ -171,27 +244,42 @@ function linux
     Write-Host "Starting $distroName..."
     wsl -d $distroName
 }
+# Write-Host ("(' linux  ',{1})," -f $MyInvocation.ScriptLineNumber, $ProfileTimer.ElapsedMilliseconds)
+
+# function psRestart
+# {
+#     param (
+#         # If this switch is included, the new session will be as admin
+#         [switch]$Admin
+#     )
+#     if ($Admin)
+#     {
+#         # Run this if 'ps-restart -Admin' is typed
+#         Start-Process -FilePath "pwsh.exe" -ArgumentList "-NoExit" -Verb RunAs
+#     } else
+#     {
+#         # Run this if just 'ps-restart' is typed
+#         Start-Process -FilePath "pwsh.exe" -ArgumentList "-NoExit"
+#     }
+
+#     exit
+# }
 
 
 function psRestart
 {
-    param (
-        # If this switch is included, the new session will be as admin
-        [switch]$Admin
-    )
+    param ([switch]$Admin)
+    $arguments = "-NoExit -Command Set-Location '$PWD'"
     if ($Admin)
     {
-        # Run this if 'ps-restart -Admin' is typed
-        Start-Process -FilePath "pwsh.exe" -ArgumentList "-NoExit" -Verb RunAs
+        Start-Process pwsh -ArgumentList $arguments -Verb RunAs
     } else
     {
-        # Run this if just 'ps-restart' is typed
-        Start-Process -FilePath "pwsh.exe" -ArgumentList "-NoExit"
+        Start-Process pwsh -ArgumentList $arguments
     }
-
     exit
 }
-
+# Write-Host ("(' psRestart  ',{1})," -f $MyInvocation.ScriptLineNumber, $ProfileTimer.ElapsedMilliseconds)
 # Enhanced PowerShell Experience
 # Enhanced PSReadLine Configuration
 $PSReadLineOptions = @{
@@ -210,7 +298,7 @@ $PSReadLineOptions = @{
         Keyword = '#8367c7'  # Violet (pastel)
         Error = '#FF6347'  # Tomato (keeping it close to red for visibility)
     }
-    PredictionSource = 'History'
+    PredictionSource = 'HistoryAndPlugin'
     PredictionViewStyle = 'ListView'
     BellStyle = 'None'
 }
@@ -240,7 +328,7 @@ Set-PSReadLineOption -AddToHistoryHandler {
 Set-PSReadLineOption -PredictionSource HistoryAndPlugin
 Set-PSReadLineOption -MaximumHistoryCount 10000
 
-
+# Write-Host ("(' PSReadLineOptions  ',{1})," -f $MyInvocation.ScriptLineNumber, $ProfileTimer.ElapsedMilliseconds)
 ###################################################
 ###################################################
 # # type ./, you’ll see a dropdown list of paths, just like the history list.
@@ -293,22 +381,33 @@ function g
 
 }
 
+# Write-Host ("(' git  ',{1})," -f $MyInvocation.ScriptLineNumber, $ProfileTimer.ElapsedMilliseconds)
+###################################################
+###################################################
+#function y
+#{
+#    $tmp = [System.IO.Path]::GetTempFileName()
+#    yazi $args --cwd-file = "$tmp"
+#    $cwd = Get-Content -Path $tmp -Encoding UTF8
+#    if (-not [String]::IsNullOrEmpty($cwd) -and $cwd -ne $PWD.Path)
+#    {
+#        Set-Location -LiteralPath ([System.IO.Path]::GetFullPath($cwd))
+#    }
+#    Remove-Item -Path $tmp
+#}
 
-###################################################
-###################################################
 function y
 {
-    $tmp = [System.IO.Path]::GetTempFileName()
-    yazi $args --cwd-file = "$tmp"
+    $tmp = (New-TemporaryFile).FullName
+    yazi $args --cwd-file="$tmp"
     $cwd = Get-Content -Path $tmp -Encoding UTF8
     if (-not [String]::IsNullOrEmpty($cwd) -and $cwd -ne $PWD.Path)
     {
-        Set-Location -LiteralPath ([System.IO.Path]::GetFullPath($cwd))
+        Set-Location -LiteralPath (Resolve-Path -LiteralPath $cwd).Path
     }
     Remove-Item -Path $tmp
 }
-
-
+# Write-Host ("(' yazi  ',{1})," -f $MyInvocation.ScriptLineNumber, $ProfileTimer.ElapsedMilliseconds)
 function findES
 {
     param (
@@ -327,14 +426,18 @@ function findES
     # Global or blank
     es.exe $Query
 }
+# Write-Host ("(' ES  ',{1})," -f $MyInvocation.ScriptLineNumber, $ProfileTimer.ElapsedMilliseconds)
+
+
 
 # # colored path, user, etc.
 #oh-my-posh init pwsh | Invoke-Expression
 
 # # oh my posh theme (disabled to use custom prompt with RAM usage)
-oh-my-posh init pwsh --config "C:\Users\AHAH43\Documents\ahah43-blue-owl.omp.json" | Invoke-Expression
-#oh-my-posh init pwsh --config "C:\Users\AHAH43\AppData\Local\Programs\oh-my-posh\themes\clean-detailed.omp.json" | Invoke-Expression
-
+# oh-my-posh init pwsh --config "C:\Users\AHAH43\Documents\ahah43-blue-owl.omp.json" | Invoke-Expression
+# . "$HOME\.ps_cache\posh-init.ps1"
+# #oh-my-posh init pwsh --config "C:\Users\AHAH43\AppData\Local\Programs\oh-my-posh\themes\clean-detailed.omp.json" | Invoke-Expression
+# Write-Host ("(' oh-my-posh  ',{1})," -f $MyInvocation.ScriptLineNumber, $ProfileTimer.ElapsedMilliseconds)
 # # Starship theme
 ##$ENV:STARSHIP_CONFIG = "C:\Users\AHAH43\Documents\starship.toml"
 ##Invoke-Expression (&starship init powershell)
@@ -344,6 +447,16 @@ oh-my-posh init pwsh --config "C:\Users\AHAH43\Documents\ahah43-blue-owl.omp.jso
 
 
 #Invoke-Expression (&scoop-search --hook)
-. ([ScriptBlock]::Create((& scoop-search --hook | Out-String)))
-
+# . ([ScriptBlock]::Create((& scoop-search --hook | Out-String)))
+# . "$HOME\.ps_cache\scoop-search-hook.ps1"
+# Write-Host ("(' scoop-search  ',{1})," -f $MyInvocation.ScriptLineNumber, $ProfileTimer.ElapsedMilliseconds)
 #Invoke-Expression (& { (zoxide init powershell | Out-String) })
+# (& uv generate-shell-completion powershell) | Out-String | Invoke-Expression
+# . "$HOME\.ps_cache\uv-completion.ps1"
+# Write-Host ("(' uv  ',{1})," -f $MyInvocation.ScriptLineNumber, $ProfileTimer.ElapsedMilliseconds)
+# (& uvx --generate-shell-completion powershell) | Out-String | Invoke-Expression
+# . "$HOME\.ps_cache\uvx-completion.ps1"
+# Write-Host ("(' uvx  ',{1})," -f $MyInvocation.ScriptLineNumber, $ProfileTimer.ElapsedMilliseconds)
+# fnm env --use-on-cd --shell powershell | Out-String | Invoke-Expression
+# . "$HOME\.ps_cache\fnm-env.ps1"
+# Write-Host ("(' fnm  ',{1})," -f $MyInvocation.ScriptLineNumber, $ProfileTimer.ElapsedMilliseconds)
