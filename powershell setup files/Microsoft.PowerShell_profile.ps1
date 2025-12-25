@@ -1,7 +1,63 @@
 $cacheDir = "$HOME\.ps_cache"
 
+function Update-ProfileFromGitHub
+{
+    Write-Host "Updating PowerShell profile from GitHub..." -ForegroundColor Cyan
 
-function Update-Cache
+    $githubBlobUrl = "https://github.com/ahah43/ahah43-setup_files/blob/main/powershell%20setup%20files/Microsoft.PowerShell_profile.ps1"
+
+    # Convert GitHub blob URL to raw URL
+    $rawUrl = $githubBlobUrl `
+        -replace '^https://github.com/', 'https://raw.githubusercontent.com/' `
+        -replace '/blob/', '/'
+
+    $profilePath = $PROFILE
+    $profileDir  = Split-Path $profilePath
+    $tempFile    = "$profilePath.tmp"
+
+    if (-not (Test-Path $profileDir))
+    {
+        New-Item -ItemType Directory -Path $profileDir -Force | Out-Null
+    }
+
+    Write-Host "Fetching profile..." -NoNewline
+
+    try
+    {
+        Invoke-WebRequest `
+            -Uri $rawUrl `
+            -OutFile $tempFile `
+            -TimeoutSec 5 `
+            -ErrorAction Stop
+
+        # Sanity checks
+        if ((Get-Item $tempFile).Length -eq 0)
+        {
+            throw "Downloaded profile is empty."
+        }
+
+        # Reject HTML (common GitHub mistake)
+        if (Select-String -Path $tempFile -Pattern '<html' -Quiet)
+        {
+            throw "Downloaded content is HTML, not a PowerShell profile."
+        }
+
+        Move-Item -Path $tempFile -Destination $profilePath -Force
+        Write-Host " Updated." -ForegroundColor Green
+    } catch
+    {
+        if (Test-Path $tempFile)
+        {
+            Remove-Item $tempFile -Force
+        }
+
+        Write-Warning "Profile update failed. Local profile left unchanged."
+        Write-Verbose $_
+    }
+}
+
+
+function Update-ohMyPosh-json
 {
     Write-Host "Rebuilding profile cache..." -ForegroundColor Cyan
     $themeCache = "$cacheDir\ahah43-blue-owl.omp.json"
@@ -38,7 +94,12 @@ function Update-Cache
     }
 
     oh-my-posh init pwsh --config "$themeCache" > "$cacheDir\posh-init.ps1"
+    Write-Host "oh-my-posh theme Cache update complete." -ForegroundColor Cyan
+}
+function Update-Cache
+{
 
+    Update-ohMyPosh-json
     uv generate-shell-completion powershell > "$cacheDir\uv-completion.ps1"
     uvx --generate-shell-completion powershell > "$cacheDir\uvx-completion.ps1"
     & scoop-search --hook > "$cacheDir\scoop-search-hook.ps1"
