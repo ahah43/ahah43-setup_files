@@ -1,4 +1,5 @@
 $cacheDir = "$HOME\.ps_cache"
+$themeCache = "$cacheDir\ahah43-blue-owl.omp.json"
 
 function Update-ProfileFromGitHub
 {
@@ -56,6 +57,11 @@ function Update-ProfileFromGitHub
     }
 }
 
+# function newSessionOhMyPosh{
+#     $themeCache = "$cacheDir\ahah43-blue-owl.omp.json"
+#     # oh-my-posh init pwsh --config "$themeCache" | Invoke-Expression
+#     oh-my-posh init pwsh --config "$themeCache" > "$cacheDir\posh-init.ps1"
+# }
 
 function Update-ohMyPosh-json
 {
@@ -65,7 +71,7 @@ function Update-ohMyPosh-json
         return
     }
     # Write-Host "Rebuilding profile cache..." -ForegroundColor Cyan
-    $themeCache = "$cacheDir\ahah43-blue-owl.omp.json"
+    # $themeCache = "$cacheDir\ahah43-blue-owl.omp.json"
     $remoteTheme = "https://raw.githubusercontent.com/ahah43/ahah43-setup_files/main/oh-my-posh%20setup/ahah43-blue-owl.omp.json"
 
     if (-not (Test-Path $cacheDir))
@@ -148,7 +154,7 @@ function Update-Cache
 }
 
 
-if (-not (Test-Path "$cacheDir\posh-init.ps1"))
+if (-not (Test-Path "$cacheDir\uv-completion.ps1"))
 {
     Write-Host "Initial setup: Generating profile cache..." -ForegroundColor Yellow
     Update-Cache
@@ -188,14 +194,8 @@ function LoadCachedSettingsFile
 }
 
 
-loadCachedSettingsFile -CachedFilePath "$cacheDir\posh-init.ps1" -RequiredCommand "oh-my-posh"
-loadCachedSettingsFile -CachedFilePath "$cacheDir\scoop-search-hook.ps1" -RequiredCommand "scoop-search"
-loadCachedSettingsFile -CachedFilePath "$cacheDir\uv-completion.ps1" -RequiredCommand "uv"
-loadCachedSettingsFile -CachedFilePath "$cacheDir\uvx-completion.ps1" -RequiredCommand "uvx"
-
-
-$lastUpdate = (Get-Item "$cacheDir\posh-init.ps1").LastWriteTime
-if ($lastUpdate -lt (Get-Date).AddDays(-2))
+$lastUpdate = (Get-Item "$cacheDir\uv-completion.ps1").LastWriteTime
+if ($lastUpdate -lt (Get-Date).AddDays(-1))
 {
     Update-Cache
 }
@@ -594,3 +594,13 @@ function findES
 # fnm env --use-on-cd --shell powershell | Out-String | Invoke-Expression
 # . "$HOME\.ps_cache\fnm-env.ps1"
 # Write-Host ("(' fnm  ',{1})," -f $MyInvocation.ScriptLineNumber, $ProfileTimer.ElapsedMilliseconds)
+# newSessionOhMyPosh
+
+
+
+loadCachedSettingsFile -CachedFilePath "$cacheDir\scoop-search-hook.ps1" -RequiredCommand "scoop-search"
+loadCachedSettingsFile -CachedFilePath "$cacheDir\uv-completion.ps1" -RequiredCommand "uv"
+loadCachedSettingsFile -CachedFilePath "$cacheDir\uvx-completion.ps1" -RequiredCommand "uvx"
+# loadCachedSettingsFile -CachedFilePath "$cacheDir\posh-init.ps1" -RequiredCommand "oh-my-posh"
+
+oh-my-posh init pwsh --config "$themeCache" | Invoke-Expression
