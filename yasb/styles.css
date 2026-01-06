@@ -1174,3 +1174,7 @@ For more information about configuration options, please visit the Wiki https://
 .clock-widget .label {
     color: rgba(255, 255, 0, 1);
 }
+
+.custom-widget .widget-container .icon {
+    color: #ff0000;
+}
