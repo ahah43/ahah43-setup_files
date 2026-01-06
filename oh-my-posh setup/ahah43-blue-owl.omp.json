@@ -32,42 +32,6 @@
           "template": " {{ .CurrentDate | date .Format }} ",
           "type": "time"
         },
-        // {
-        //   "type": "battery",
-        //   "style": "powerline",
-        //   "powerline_symbol": "",
-        //   "foreground": "#193549",
-        //   "background": "#ffeb3b",
-        //   "background_templates": [
-        //     "{{if eq \"Charging\" .State.String}}#40c4ff{{end}}",
-        //     "{{if eq \"Discharging\" .State.String}}#ff5722{{end}}",
-        //     "{{if eq \"Full\" .State.String}}#4caf50{{end}}"
-        //   ],
-        //   "template": " {{ if not .Error }}{{ .Icon }}{{ .Percentage }}{{ end }} ",
-        //   "properties": {
-        //     "discharging_icon": " ",
-        //     "charging_icon": " ",
-        //     "charged_icon": " "
-        //   }
-        // },
-        {
-          "type": "connection",
-          "style": "powerline",
-          "background": "#8822ee",
-          "foreground": "#222222",
-          "powerline_symbol": ""
-        },
-        {
-          "background": "#516BEB",
-          "foreground": "#000000",
-          "style": "powerline",
-          "powerline_symbol": "",
-          "background_templates": [
-            "{{if lt .PhysicalPercentUsed 85}}#40c4ff{{else}}#ff5722{{end}}"
-          ],
-          "template": " \ue266 {{ round .PhysicalPercentUsed .Precision }}%",
-          "type": "sysinfo"
-        },
         {
           "type": "project",
           "style": "powerline",
