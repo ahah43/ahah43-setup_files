@@ -446,7 +446,7 @@ widgets:
   disk:
     type: "yasb.disk.DiskWidget"
     options:
-        label: "{volume_label} {space[used][percent]}"
+        label: "{volume_label}:{space[used][percent]}"
         label_alt: "{volume_label} {space[used][gb]} / {space[total][gb]}"
         volume_label: "C"
         update_interval: 60
