@@ -602,8 +602,8 @@ widgets:
     type: "yasb.custom.CustomWidget"
     # config_dir: "~/.config/yasb"
     options:
-      label: "<span>\udb80\udd59</span>"
-      label_alt: "\udb80\udd59"
+      label: "<span>\uf00d</span>"
+      label_alt: "\uf00d"
       tooltip: true
       tooltip_label: "Close active window"
       class_name: "custom-widget"
