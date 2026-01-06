@@ -1178,3 +1178,65 @@ For more information about configuration options, please visit the Wiki https://
 .custom-widget .widget-container .icon {
     color: #ff0000;
 }
+
+
+/* .memory-widget .widget-container .label, */
+
+
+.memory-widget .label.status-low {
+    color: rgba(0, 255, 98, 1);
+}
+
+
+.memory-widget .label.status-medium {
+    color: rgba(255, 255, 0, 1);
+}
+
+.memory-widget .label.status-high {
+    color: rgba(255, 0, 0, 1);
+}
+
+
+.cpu-widget .label.status-low {
+    color: rgba(0, 255, 98, 1);
+}
+
+.cpu-widget .label.status-medium {
+    color: rgba(255, 255, 0, 1);
+}
+
+.cpu-widget .label.status-high {
+    color: rgba(255, 0, 0, 1);
+}
+
+.disk-widget .label.status-low {
+    color: rgba(0, 255, 98, 1);
+}
+
+.disk-widget .label.status-medium {
+    color: rgba(255, 255, 0, 1);
+}
+
+.disk-widget .label.status-high {
+    color: rgba(255, 0, 0, 1);
+}
+
+.battery-widget .widget-container .label.status-low {
+    color: rgba(255, 0, 0, 1);
+}
+
+.battery-widget .widget-container .label.status-medium {
+    color: rgba(255, 255, 0, 1);
+}
+
+.battery-widget .widget-container .label.status-high {
+    color: rgba(0, 255, 98, 1);
+}
+
+.battery-widget .widget-container .label.status-full {
+    color: rgba(0, 255, 98, 1);
+}
+
+.battery-widget .widget-container .label.status-charging {
+    color: rgba(0, 200, 255, 1);
+}
