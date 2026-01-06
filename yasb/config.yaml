@@ -608,4 +608,5 @@ widgets:
       tooltip_label: "Close active window"
       class_name: "custom-widget"
       callbacks:
-        on_left: 'exec pwsh -Command "AutoHotkey.exe  "C:\Users\Ahmed.H\.config\yasb\close_active_window.ahk"'
+        on_left: "exec pwsh -Command AutoHotkey.exe $env:USERPROFILE\\.config\\yasb\\close_active_window.ahk"
+
