@@ -1,11 +1,10 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-
   "blocks": [
     {
       "alignment": "left",
       "segments": [
-	 {
+        {
           "style": "plain",
           "template": "\u256d\u2500",
           "type": "text"
@@ -33,24 +32,24 @@
           "template": " {{ .CurrentDate | date .Format }} ",
           "type": "time"
         },
-        {
-          "type": "battery",
-          "style": "powerline",
-          "powerline_symbol": "",
-          "foreground": "#193549",
-          "background": "#ffeb3b",
-          "background_templates": [
-            "{{if eq \"Charging\" .State.String}}#40c4ff{{end}}",
-            "{{if eq \"Discharging\" .State.String}}#ff5722{{end}}",
-            "{{if eq \"Full\" .State.String}}#4caf50{{end}}"
-          ],
-          "template": " {{ if not .Error }}{{ .Icon }}{{ .Percentage }}{{ end }} ",
-          "properties": {
-            "discharging_icon": " ",
-            "charging_icon": " ",
-            "charged_icon": " "
-          }
-        },
+        // {
+        //   "type": "battery",
+        //   "style": "powerline",
+        //   "powerline_symbol": "",
+        //   "foreground": "#193549",
+        //   "background": "#ffeb3b",
+        //   "background_templates": [
+        //     "{{if eq \"Charging\" .State.String}}#40c4ff{{end}}",
+        //     "{{if eq \"Discharging\" .State.String}}#ff5722{{end}}",
+        //     "{{if eq \"Full\" .State.String}}#4caf50{{end}}"
+        //   ],
+        //   "template": " {{ if not .Error }}{{ .Icon }}{{ .Percentage }}{{ end }} ",
+        //   "properties": {
+        //     "discharging_icon": " ",
+        //     "charging_icon": " ",
+        //     "charged_icon": " "
+        //   }
+        // },
         {
           "type": "connection",
           "style": "powerline",
@@ -108,12 +107,11 @@
       ],
       "type": "prompt"
     },
-
     {
       "alignment": "left",
       "newline": true,
       "segments": [
-	{
+        {
           "properties": {
             "always_enabled": true
           },
@@ -123,7 +121,9 @@
         },
         {
           "foreground": "#ffffff",
-          "foreground_templates": ["{{ if gt .Code 0 }}#ff0000{{ end }}"],
+          "foreground_templates": [
+            "{{ if gt .Code 0 }}#ff0000{{ end }}"
+          ],
           "properties": {
             "always_enabled": true
           },
@@ -136,7 +136,7 @@
     }
   ],
   "console_title_template": "{{.Folder}} ",
-"transient_prompt": {
+  "transient_prompt": {
     "background": "transparent",
     "foreground": "#FEF5ED",
     "template": "\ue285 "
