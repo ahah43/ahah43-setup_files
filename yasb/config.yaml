@@ -321,11 +321,11 @@ widgets:
         blink_charging_icon: true
         blink_interval: 500
       status_thresholds:
-        critical: 10
-        low: 25
-        medium: 75
-        high: 95
-        full: 100
+        full: 95
+        high: 90
+        medium: 80
+        low: 35
+        critical: 25
       status_icons:
         icon_charging: "\uf0e7"
         icon_critical: "\uf244"
@@ -585,14 +585,14 @@ widgets:
       animation:
         enabled: true
       preview:
-        enabled: false
-        width: 240
+        enabled: true
+        width: 600
         delay: 400
         padding: 8
         margin: 8
       title_label:
         enabled: false
-        show: "always"
+        show: "focused"
         min_length: 10
         max_length: 30
       ignore_apps:
@@ -607,9 +607,9 @@ widgets:
       label_alt: "\uf00d"
       tooltip: true
       tooltip_label: "Close active window"
-      class_name: "custom-widget"
+      class_name: "close-app-custom-widget"
       callbacks:
-        on_left: "exec pwsh -Command AutoHotkey.exe $env:USERPROFILE\\.config\\yasb\\close_active_window.ahk"
+        on_left: "exec pwsh -Command AutoHotkey $env:USERPROFILE\\.config\\yasb\\close_active_window.ahk"
 
 
   notes:

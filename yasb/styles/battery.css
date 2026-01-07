@@ -11,7 +11,7 @@
 }
 
 .battery-widget .widget-container .label.status-full {
-    color: rgba(0, 255, 98, 1);
+    color: rgb(200, 15, 228);
 }
 
 .battery-widget .widget-container .label.status-charging {
