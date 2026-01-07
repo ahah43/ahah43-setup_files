@@ -1,1365 +1,644 @@
-/* 
-This is default and very simple styles file for Yasb. 
-For more information about configuration options, please visit the Wiki https://github.com/amnweb/yasb/wiki
-*/
-:root {
-    --mauve: #cba6f7;
-    --red: #f38ba8;
-    --yellow: #ffd16d;
-    --blue: #448fff;
-    --lavender: #b4befe;
-    --text1: #d4d9eb;
-    --text2: #8f929e;
-    --text3: #9399b2;
-    --text4: #7f849c;
-    --bg-color1: #191919;
-    --bg-color2: #333333;
-}
-
-* {
-    font-size: 12px;
-    color: var(--text1);
-    font-weight: 600;
-    font-family: "JetBrainsMono NFP";
-}
-
-.yasb-bar {
-    background-color: var(--bg-color1);
-    border-radius: 8px;
-    border: 1px solid var(--bg-color2);
-}
-
-/* Global styles for ToolTip */
-.tooltip {
-    background-color: var(--bg-color1);
-    border-radius: 4px;
-    color: var(--text1);
-    padding: 5px 10px;
-    font-size: 12px;
-    font-family: 'Segoe UI';
-    font-weight: 600;
-    margin-top: 4px;
-}
-
-/* Global context menu style */
-.context-menu,
-.context-menu .menu-checkbox {
-    background-color: var(--bg-color1);
-    border: none;
-    padding: 4px 0px;
-    font-family: 'Segoe UI';
-    font-size: 12px;
-    color: var(--text1)
-}
-
-.context-menu::right-arrow {
-    width: 8px;
-    height: 8px;
-    padding-right: 24px;
-}
-
-.context-menu::item,
-.context-menu .menu-checkbox {
-    background-color: transparent;
-    padding: 6px 12px;
-    margin: 2px 6px;
-    border-radius: 6px;
-    min-width: 100px;
-}
-
-.context-menu::item:selected,
-.context-menu .menu-checkbox:hover {
-    background-color: var(--bg-color2);
-    color: #FFFFFF;
-}
-
-.context-menu::separator {
-    height: 1px;
-    background-color: #404040;
-    margin: 4px 8px;
-}
-
-.context-menu::item:disabled {
-    color: #666666;
-    background-color: transparent;
-}
-
-.context-menu .menu-checkbox .checkbox {
-    border: none;
-    padding: 8px 16px;
-    font-size: 12px;
-    margin: 0;
-    color: var(--text1);
-    font-family: 'Segoe UI'
-}
-
-.context-menu .submenu::item:disabled {
-    margin: 0;
-    padding-left: 16px;
-}
-
-.context-menu .menu-checkbox .checkbox:unchecked {
-    color: var(--text2)
-}
-
-.context-menu .menu-checkbox .checkbox::indicator {
-    width: 12px;
-    height: 12px;
-    margin-left: 0px;
-    margin-right: 8px;
-}
-
-.context-menu .menu-checkbox .checkbox::indicator:unchecked {
-    background: #444444;
-    border-radius: 2px;
-}
-
-.context-menu .menu-checkbox .checkbox::indicator:checked {
-    background: var(--blue);
-    border-radius: 2px;
-}
-
-.context-menu .menu-checkbox .checkbox:focus {
-    outline: none;
-}
-
-.widget {
-    padding: 0 12px;
-    margin: 0;
-}
-
-.icon {
-    font-size: 16px;
-}
-
-.widget .label {
-    padding: 0px 2px;
-}
-
-.komorebi-active-layout {
-    padding: 0
-}
-
-.komorebi-workspaces .offline-status {
-    color: var(--text4);
-    font-size: 12px;
-    padding: 0 0 0 4px;
-    font-weight: 600;
-}
-
-.komorebi-workspaces .ws-btn {
-    border: none;
-    background-color: var(--text4);
-    margin: 0 3px;
-    height: 9px;
-    width: 9px;
-    border-radius: 4px;
-}
-
-.komorebi-workspaces .ws-btn:hover {
-    color: var(--text2);
-}
-
-.komorebi-workspaces .ws-btn.populated {
-    background-color: var(--lavender);
-}
-
-.komorebi-workspaces .ws-btn.active {
-    background-color: var(--blue);
-    width: 36px;
-}
-
-.power-menu-widget .label {
-    color: #f38ba8;
-    font-size: 13px;
-}
-
-.power-menu-popup {
-    background-color: transparent
-}
-
-.power-menu-popup .button {
-    padding: 0;
-    width: 180px;
-    height: 230px;
-    border-radius: 8px;
-    background-color: var(--bg-color1);
-    border: 4px solid transparent;
-    margin: 0px;
-}
-
-.power-menu-popup .button.hover {
-    background-color: var(--bg-color1);
-    border: 4px solid var(--bg-color1);
-}
-
-.power-menu-popup .button .label {
-    margin-bottom: 8px;
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--text3)
-}
-
-.power-menu-popup .button .icon {
-    font-size: 64px;
-    padding-top: 32px;
-    color: var(--text4)
-}
-
-.power-menu-popup .button.hover .label,
-.power-menu-popup .button.hover .icon {
-    color: rgba(255, 255, 255, 0.808)
-}
-
-.power-menu-popup .button.cancel .icon {
-    padding: 0;
-    margin: 0;
-}
-
-.power-menu-popup .button.cancel .label {
-    color: var(--red);
-    margin: 0;
-}
-
-.power-menu-popup .button.cancel {
-    height: 32px;
-    border-radius: 4px;
-}
-
-.power-menu-popup .button.cancel.hover .label {
-    color: rgb(255, 255, 255)
-}
-
-.uptime {
-    font-size: 14px;
-    margin-bottom: 10px;
-    color: var(--text4);
-    font-weight: 600;
-}
-
-.microphone-widget {
-    padding: 0 6px 0 6px;
-}
-
-.microphone-widget .icon {
-    font-size: 18px;
-}
-
-.microphone-widget .icon {
-    color: var(--mauve);
-}
-
-.volume-widget .icon {
-    color: #74b0ff;
-    ;
-    margin: 0 2px 0 0;
-}
-
-.audio-menu {
-    background-color: rgba(17, 17, 27, 0.4);
-    min-width: 300px;
-}
-
-/* System volume */
-.audio-menu .system-volume-container .volume-slider {
-    border: none;
-}
-
-/* Device list styles */
-.audio-menu .audio-container .device {
-    background-color: transparent;
-    border: none;
-    padding: 6px 8px 6px 4px;
-    margin: 2px 0;
-    font-size: 12px;
-    border-radius: 4px;
-}
-
-.audio-menu .audio-container .device.selected {
-    background-color: rgba(255, 255, 255, 0.085);
-
-}
-
-.audio-menu .audio-container .device:hover {
-    background-color: rgba(255, 255, 255, 0.06);
-}
-
-/* Toggle button for application volumes (if is enabled) */
-.audio-menu .toggle-apps {
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    margin: 0;
-    min-height: 24px;
-    min-width: 24px;
-    border-radius: 4px;
-}
-
-.audio-menu .toggle-apps.expanded {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-.audio-menu .toggle-apps:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-
-}
-
-/* Container for application volumes (if is enabled) */
-.audio-menu .apps-container {
-    padding: 8px;
-    margin-top: 20px;
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.062)
-}
-
-.audio-menu .apps-container .app-volume .app-icon-container {
-    min-width: 40px;
-    min-height: 40px;
-    max-width: 40px;
-    max-height: 40px;
-    border-radius: 6px;
-    margin-right: 8px;
-}
-
-.audio-menu .apps-container .app-volume .app-slider {
-    min-height: 40px;
-    max-height: 40px;
-}
-
-.audio-menu .apps-container .app-volume .app-icon-container:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-.weather-widget .icon {
-    font-size: 18px;
-    margin: 0 2px 1px 0;
-    color: var(--yellow);
-}
-
-.weather-card {
-    background-color: var(--bg-color1);
-    border-radius: 8px;
-    min-width: 540px;
-    border: 1px solid var(--bg-color2);
-}
-
-.weather-card-today .label {
-    font-size: 12px;
-}
-
-.weather-card-today .label.location {
-    font-size: 24px;
-    font-weight: 700;
-}
-
-.weather-card-today .label.alert {
-    font-size: 12px;
-    font-weight: 700;
-    background-color: rgba(247, 199, 42, 0.05);
-    border: 1px solid rgba(247, 209, 42, 0.1);
-    color: rgba(196, 181, 162, 0.85);
-    border-radius: 6px;
-    padding: 5px 0;
-}
-
-.weather-card-day {
-    border: 1px solid transparent;
-    border-radius: 8px;
-    background-color: rgba(17, 17, 27, 0.2);
-}
-
-.weather-card-day.active {
-    border: 1px solid rgb(61, 61, 80);
-}
-
-.weather-card-day .label {
-    font-size: 12px;
-}
-
-.weather-card .hourly-container {
-    background-color: transparent;
-    min-height: 150px;
-    border: none
-}
-
-.weather-card .hourly-data {
-    background-color: #FAE93F;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.media-widget {
-    padding: 0;
-    margin: 0;
-    border-radius: 0;
-}
-
-.media-widget .btn {
-    color: #7a7f8b;
-    padding: 0 4px;
-    margin: 0;
-    font-family: "JetBrainsMono NFP";
-    font-weight: 400;
-    font-size: 20px;
-}
-
-.media-widget .btn:hover {
-    color: #babfd3;
-}
-
-.media-widget .btn.play {
-    font-size: 24px;
-    color: #989caa;
-}
-
-.media-widget .btn.disabled:hover,
-.media-widget .btn.disabled {
-    color: #4e525c;
-    background-color: rgba(0, 0, 0, 0);
-    font-size: 20px;
-}
-
-.media-menu {
-    min-width: 420px;
-    max-width: 420px;
-    background-color: var(--bg-color1);
-    border-radius: 8px;
-    border: 1px solid var(--bg-color2);
-}
-
-.media-menu .title,
-.media-menu .artist,
-.media-menu .source {
-    font-size: 14px;
-    font-weight: 600;
-    margin-left: 10px;
-    font-family: 'Segoe UI'
-}
-
-.media-menu .artist {
-    font-size: 13px;
-    color: #6c7086;
-    margin-top: 0px;
-    margin-bottom: 8px;
-}
-
-.media-menu .source {
-    font-size: 11px;
-    color: #000;
-    font-weight: normal;
-    border-radius: 3px;
-    background-color: #bac2de;
-    padding: 2px 4px;
-
-}
-
-.media-menu .source.firefox {
-    background-color: #ff583b;
-    color: #ffffff;
-}
-
-.media-menu .source.spotify {
-    background-color: #199143;
-    color: #ffffff;
-}
-
-.media-menu .source.edge {
-    background-color: #0078d4;
-    color: #ffffff;
-}
-
-.media-menu .source.windows-media {
-    background-color: #0078d4;
-    color: #ffffff;
-}
-
-.media-menu .btn {
-    font-family: "Segoe Fluent Icons";
-    font-size: 14px;
-    font-weight: 400;
-    margin: 10px 2px 0px 2px;
-    min-width: 40px;
-    max-width: 40px;
-    min-height: 40px;
-    max-height: 40px;
-    border-radius: 20px;
-}
-
-.media-menu .btn.prev {
-    margin-left: 10px;
-}
-
-.media-menu .btn:hover {
-    color: white;
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-.media-menu .btn.play {
-    background-color: rgba(255, 255, 255, 0.1);
-    font-size: 20px
-}
-
-.media-menu .btn.disabled:hover,
-.media-menu .btn.disabled {
-    color: #4e525c;
-    background-color: rgba(0, 0, 0, 0);
-}
-
-.media-menu .playback-time {
-    font-size: 13px;
-    font-family: 'Segoe UI';
-    color: #7f849c;
-    margin-top: 20px;
-    min-width: 100px;
-}
-
-.media-menu .progress-slider {
-    height: 10px;
-    margin: 5px 4px;
-    border-radius: 3px;
-}
-
-.media-menu .progress-slider::groove {
-    background: transparent;
-    height: 2px;
-    border-radius: 3px;
-    background: rgba(255, 255, 255, 0.1);
-
-}
-
-.media-menu .progress-slider::groove:hover {
-    background: transparent;
-    height: 6px;
-    border-radius: 3px;
-    background: rgba(255, 255, 255, 0.2);
-}
-
-.media-menu .progress-slider::sub-page {
-    background: white;
-    border-radius: 3px;
-    height: 4px;
-}
-
-.home-widget {
-    padding: 0 4px 0 12px;
-}
-
-.home-widget .icon {
-    color: var(--lavender);
-}
-
-.home-widget .icon:hover {
-    color: var(--text1);
-}
-
-.home-menu {
-    background-color: var(--bg-color1);
-    border-radius: 8px;
-    border: 1px solid var(--bg-color2);
-}
-
-.home-menu .menu-item {
-    padding: 8px 48px 9px 16px;
-    font-size: 12px;
-    font-family: 'Segoe UI';
-    color: var(--text1);
-    font-weight: 600;
-}
-
-.home-menu .menu-item:hover {
-    background-color: rgba(128, 130, 158, 0.15);
-    color: #fff;
-}
-
-.home-menu .separator {
-    max-height: 1px;
-    background-color: rgba(128, 130, 158, 0.3);
-}
-
-.notification-widget {
-    padding: 0 0px 0 4px;
-}
-
-.notification-widget .icon {
-    font-size: 14px;
-}
-
-.notification-widget .icon.new-notification {
-    color: var(--blue);
-}
-
-.calendar {
-    background-color: var(--bg-color1);
-    border-radius: 8px;
-    border: 1px solid var(--bg-color2);
-}
-
-.calendar .calendar-table,
-.calendar .calendar-table::item {
-    background-color: rgba(17, 17, 27, 0);
-    color: rgba(162, 177, 196, 0.85);
-    font-family: "Segoe UI";
-    margin: 0;
-    padding: 0;
-    border: none;
-    outline: none;
-}
-
-.calendar .calendar-table::item:selected {
-    color: #000000;
-    background-color: var(--blue);
-    border-radius: 10px;
-}
-
-.calendar .day-label {
-    margin-top: 20px;
-}
-
-.calendar .day-label,
-.calendar .month-label,
-.calendar .date-label,
-.calendar .week-label,
-.calendar .holiday-label {
-    font-family: "Segoe UI";
-    font-size: 16px;
-    color: #fff;
-    font-weight: 700;
-    min-width: 180px;
-    max-width: 180px;
-}
-
-.calendar .week-label,
-.calendar .holiday-label {
-    font-size: 12px;
-    font-weight: 600;
-    color: rgba(162, 177, 196, 0.85);
-}
-
-.calendar .holiday-label {
-    color: rgba(162, 177, 196, 0.85);
-    font-weight: 700;
-}
-
-.calendar .month-label {
-    font-weight: normal;
-}
-
-.calendar .date-label {
-    font-size: 88px;
-    font-weight: 900;
-    color: rgb(255, 255, 255);
-    margin-top: -20px;
-}
-
-.disk-group {
-    background-color: rgba(17, 17, 27, 0.75);
-}
-
-.disk-group-row {
-    min-width: 220px;
-    max-width: 220px;
-    max-height: 40px;
-    margin: 0;
-    padding: 0;
-    border-radius: 6px;
-    border: 1px solid rgba(128, 128, 128, 0);
-}
-
-.disk-group-row:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1)
-}
-
-.disk-group-label-bar {
-    max-height: 8px;
-    border: 0px solid rgba(128, 128, 128, 0);
-    background-color: rgba(137, 180, 250, 0.1);
-    border-radius: 4px
-}
-
-.disk-group-label-bar::chunk {
-    background-color: rgba(137, 180, 250, 0.3);
-    border-radius: 4px
-}
-
-.disk-group-label {
-    font-size: 10px
-}
-
-.disk-group-label-size {
-    font-size: 10px;
-    color: #585b70
-}
-
-.pomodoro-widget {
-    padding: 0 6px 0 6px;
-}
-
-.pomodoro-widget .icon {
-    font-size: 12px;
-    padding-right: 4px;
-}
-
-.pomodoro-widget .label.paused,
-.pomodoro-widget .icon.paused {
-    color: #7d7e8b;
-}
-
-.pomodoro-widget .label.work,
-.pomodoro-widget .icon.work {
-    color: #a6e3a1;
-}
-
-.pomodoro-widget .label.break,
-.pomodoro-widget .icon.break {
-    color: #89b4fa;
-}
-
-/* Pomodoro menu styling */
-.pomodoro-menu {
-    background-color: rgba(17, 17, 27, 0.2);
-    border-radius: 8px;
-}
-
-.pomodoro-menu .header {
-    font-size: 16px;
-    font-weight: 600;
-    max-height: 0px;
-    color: #ffffff;
-}
-
-.pomodoro-menu .status {
-    font-size: 18px;
-    font-weight: 600;
-    color: #cdd6f4;
-}
-
-.pomodoro-menu .session {
-    font-size: 12px;
-    color: #a6adc8;
-}
-
-.pomodoro-menu .button {
-    background-color: #3f4053;
-    color: #cdd6f4;
-    border: none;
-    border-radius: 4px;
-    padding: 6px 12px;
-}
-
-.pomodoro-menu .button.start {
-    background-color: #3f4053;
-}
-
-.pomodoro-menu .button.reset {
-    background-color: #3f4053;
-}
-
-.pomodoro-menu .button:hover {
-    background-color: rgba(255, 255, 255, 0.158);
-}
-
-.pomodoro-menu .button.pause {
-    background-color: #a6e3a1;
-    color: #1e1e2e;
-}
-
-.pomodoro-menu .button:pressed {
-    background-color: #5a5b6e;
-}
-
-.systeminfo-grouper .container {
-    /* The name of the css class is the name given in the config */
-    background-color: rgba(46, 52, 64, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    margin: 4 0px;
-    border-radius: 12px;
-}
-
-.systeminfo-grouper .grouper-button {
-    font-size: 12px;
-    color: #ffffff;
-    padding: 0 8px;
-    background-color: transparent;
-    border: none;
-}
-
-.systeminfo-grouper .grouper-button:hover {
-    color: #88c0d0;
-}
-
-
-/* Todo Widget Styles */
-.todo-widget {
-    padding: 0 6px 0 6px;
-}
-
-.todo-widget .icon {
-    color: #00f8d7;
-    padding: 0;
-}
-
-.todo-widget .label {
-    font-size: 12px;
-    padding: 0;
-}
-
-/* Todo Menu Styles */
-.todo-menu {
-    background-color: rgba(24, 25, 27, 0.8);
-    min-width: 400px;
-    max-width: 400px;
-    min-height: 500px;
-    max-height: 500px;
-}
-
-.todo-menu .header {
-    margin: 16px 10px
-}
-
-.todo-menu .header .add-task-button,
-.todo-menu .header .tab-buttons {
-    border: none;
-    border-radius: 13px;
-    color: #ffffff;
-    padding: 4px 8px;
-    font-size: 14px;
-    font-weight: 600;
-    margin: 0px;
-    font-family: 'Segoe UI', 'JetBrainsMono NFP';
-}
-
-.todo-menu .header .tab-buttons {
-    margin: 0;
-    font-size: 12px;
-}
-
-.todo-menu .header .add-task-button:hover {
-    background-color: #0f91e7;
-}
-
-.todo-menu .header .tab-buttons.in-progress,
-.todo-menu .header .tab-buttons.completed {
-    background-color: transparent;
-}
-
-.todo-menu .header .tab-buttons.in-progress:checked {
-    color: #7fffd4;
-}
-
-.todo-menu .header .tab-buttons.completed:checked {
-    color: #ff583b;
-}
-
-.todo-menu .header .tab-buttons.sort {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-    border-radius: 10px;
-    min-height: 20px;
-    min-width: 20px;
-    max-width: 20px;
-    max-height: 20px;
-    padding: 0;
-    margin: 0 8px 0 0;
-    font-family: 'JetBrainsMono NFP';
-}
-
-.todo-menu .header .tab-buttons.sort:pressed {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.todo-menu .no-tasks {
-    font-family: 'Segoe UI';
-    font-size: 18px;
-    color: #979fa0;
-    font-weight: 400;
-    margin-top: 16px;
-}
-
-.todo-menu .no-tasks-icon {
-    font-size: 80px;
-    color: #979fa0;
-    font-family: "JetBrainsMono NFP";
-    margin-top: 64px;
-    font-weight: 400;
-}
-
-/* Task item styles */
-.todo-menu .task-item {
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    margin: 0px 12px 8px 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 8px 0;
-}
-
-.todo-menu .task-item.expanded {
-    background-color: rgba(211, 214, 219, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.todo-menu .task-item.drop-highlight,
-.todo-menu .task-item.drop-highlight:hover,
-.todo-menu .task-item.drop-highlight:focus {
-    background-color: rgba(0, 120, 212, 0.26);
-    border: 1px solid #007acc;
-}
-
-.todo-menu .task-item .title {
-    color: #ebebeb;
-    font-size: 13px;
-    font-weight: 600;
-    font-family: 'Segoe UI';
-    padding: 0 8px 8px 8px;
-    margin-top: 6px;
-}
-
-.todo-menu .task-item.completed .title,
-.todo-menu .task-item.completed .description {
-    text-decoration: line-through;
-    color: #7f8c8d;
-}
-
-.todo-menu .task-item .description {
-    color: #bdc3c7;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 0 8px 8px 8px;
-    font-family: 'Segoe UI';
-}
-
-.todo-menu .task-checkbox {
-    background-color: transparent;
-    border: none;
-    margin-left: 12px;
-    margin-top: 5px;
-    font-size: 18px;
-    color: #ebebeb;
-    font-family: 'JetBrainsMono NFP';
-}
-
-.todo-menu .task-checkbox:checked {
-    color: #7f8c8d;
-}
-
-/* Task info row styles */
-.todo-menu .task-info-row {
-    margin-left: 8px;
-    margin-bottom: 8px;
-}
-
-.todo-menu .task-info-row .date-text,
-.todo-menu .task-info-row .category-text {
-    font-family: 'Segoe UI';
-    font-weight: 600;
-    color: #7e7f88;
-    font-size: 13px;
-    padding-left: 0px;
-    margin-right: 12px;
-}
-
-.todo-menu .task-info-row .date-icon,
-.todo-menu .task-info-row .category-icon {
-    font-weight: 400;
-    color: #a7a8b3;
-    font-size: 14px;
-    font-family: 'JetBrainsMono NFP';
-    margin-top: 1px;
-}
-
-.todo-menu .task-info-row .category-text.important,
-.todo-menu .task-info-row .category-icon.important {
-    color: #ff2600;
-}
-
-.todo-menu .task-info-row .category-text.urgent,
-.todo-menu .task-info-row .category-icon.urgent {
-    color: #ff583b;
-}
-
-.todo-menu .task-info-row .category-text.soon,
-.todo-menu .task-info-row .category-icon.soon {
-    color: #7fffd4;
-}
-
-.todo-menu .task-info-row .category-text.today,
-.todo-menu .task-info-row .category-icon.today {
-    color: #f9e2af;
-}
-
-.todo-menu .task-info-row .delete-task-button {
-    background-color: rgb(160, 160, 160);
-    color: #000000;
-    font-family: 'Segoe UI';
-    font-weight: 600;
-    font-size: 12px;
-    padding: 0 8px;
-    border-radius: 10px;
-    min-height: 20px;
-    max-height: 20px;
-    margin-right: 8px;
-}
-
-/* App dialog style */
-.todo-menu .app-dialog {
-    font-family: 'Segoe UI';
-    background-color: #202020;
-}
-
-.todo-menu .app-dialog .buttons-container {
-    background-color: #171717;
-    margin-top: 16px;
-    border-top: 1px solid #000;
-    max-height: 80px;
-    min-height: 80px;
-    padding: 0 20px 0 20px;
-}
-
-.todo-menu .app-dialog .title-field,
-.todo-menu .app-dialog .desc-field {
-    background-color: #181818;
-    border: 1px solid #303030;
-    border-radius: 4px;
-    padding: 0 6px;
-    font-family: 'Segoe UI';
-    font-size: 12px;
-    font-weight: 600;
-    color: #FFFFFF;
-    margin: 10px 0px 5px 0;
-    min-height: 30px;
-}
-
-.todo-menu .app-dialog .desc-field {
-    max-height: 60px;
-}
-
-.todo-menu .app-dialog .title-field:focus,
-.todo-menu .app-dialog .desc-field:focus {
-    border-bottom-color: #4cc2ff;
-}
-
-.todo-menu .app-dialog .button {
-    background-color: #2d2d2d;
-    border: none;
-    border-radius: 4px;
-    font-family: 'Segoe UI';
-    font-size: 12px;
-    font-weight: 600;
-    color: #FFFFFF;
-    min-width: 80px;
-    padding: 0 6px;
-    margin: 10px 0 5px 6px;
-    min-height: 28px;
-    outline: none;
-}
-
-.todo-menu .app-dialog .buttons-container .button {
-    margin: 10px 0 5px 0px;
-    font-size: 13px;
-}
-
-.todo-menu .app-dialog .button:focus {
-    border: 2px solid #adadad;
-}
-
-.todo-menu .app-dialog .button:focus,
-.todo-menu .app-dialog .button:hover {
-    background-color: #4A4A4A;
-}
-
-.todo-menu .app-dialog .button:pressed {
-    background-color: #3A3A3A;
-}
-
-.todo-menu .app-dialog .button.add {
-    background-color: #0078D4;
-}
-
-.todo-menu .app-dialog .button.add:focus,
-.todo-menu .app-dialog .button.add:hover {
-    background-color: #0066B2;
-}
-
-.todo-menu .app-dialog .button.add:pressed {
-    background-color: #00509E;
-}
-
-.todo-menu .app-dialog .warning-message {
-    background-color: #2b0b0e;
-    border: 1px solid #5a303c;
-    border-radius: 4px;
-    color: #cc9b9f;
-    font-family: 'Segoe UI';
-    font-size: 12px;
-    font-weight: 600;
-    padding: 8px 12px;
-    margin: 4px 0px;
-}
-
-.todo-menu .app-dialog .category-button {
-    background-color: #2d2d2d;
-    border: none;
-    border-radius: 4px;
-    font-family: 'Segoe UI';
-    font-size: 11px;
-    font-weight: 700;
-    color: #afafaf;
-    padding: 0 6px;
-    margin-top: 8px;
-    min-height: 24px;
-    outline: none;
-}
-
-.todo-menu .app-dialog .category-button:checked {
-    background-color: #535353;
-    color: #ffffff;
-}
-
-.brightness-menu {
-    background-color: rgba(17, 17, 27, 0.4);
-}
-
-.brightness-slider {
-    border: none;
-}
-
-.taskbar-widget .app-container {
-    margin: 4px 2px;
-    border-radius: 4px;
-    padding: 0 4px;
-}
-
-.taskbar-widget .app-container.foreground {
-    background-color: #00ff37;
-}
-
-.taskbar-widget .app-container.flashing {
-    background-color: rgba(255, 106, 106, 0.63);
-}
-
-.taskbar-widget .app-container.running {
-    background-color: rgba(255, 255, 255, 0.25);
-}
-
-.taskbar-widget .app-container:hover {
-    background-color: rgba(255, 230, 0, 0.707);
-}
-
-.taskbar-widget .app-container .app-title {
-    padding-left: 4px;
-}
-
-/* Taskbar preview popup is very limited in styling options, do not use margins/paddings here */
-.taskbar-preview {
-    border-radius: 8px;
-    background-color: #2b2c2d;
-}
-
-.taskbar-preview.flashing {
-    background-color: #7f434a;
-}
-
-.taskbar-preview .header {
-    padding-bottom: 12px;
-    padding-top: 4px;
-}
-
-.taskbar-preview .header .title {
-    color: #d6d6d6;
-    font-family: "Segoe UI";
-    font-weight: 600;
-    font-size: 13px;
-}
-
-.clock-widget .label {
-    color: rgba(255, 255, 0, 1);
-}
-
-.custom-widget .widget-container .icon {
-    color: #ff0000;
-}
-
-
-/* .memory-widget .widget-container .label, */
-
-
-.memory-widget .label.status-low {
-    color: rgba(0, 255, 98, 1);
-}
-
-
-.memory-widget .label.status-medium {
-    color: rgba(255, 255, 0, 1);
-}
-
-.memory-widget .label.status-high {
-    color: rgba(255, 0, 0, 1);
-}
-
-
-.cpu-widget .label.status-low {
-    color: rgba(0, 255, 98, 1);
-}
-
-.cpu-widget .label.status-medium {
-    color: rgba(255, 255, 0, 1);
-}
-
-.cpu-widget .label.status-high {
-    color: rgba(255, 0, 0, 1);
-}
-
-.disk-widget .label.status-low {
-    color: rgba(0, 255, 98, 1);
-}
-
-.disk-widget .label.status-medium {
-    color: rgba(255, 255, 0, 1);
-}
-
-.disk-widget .label.status-high {
-    color: rgba(255, 0, 0, 1);
-}
-
-.battery-widget .widget-container .label.status-low {
-    color: rgba(255, 0, 0, 1);
-}
-
-.battery-widget .widget-container .label.status-medium {
-    color: rgba(255, 255, 0, 1);
-}
-
-.battery-widget .widget-container .label.status-high {
-    color: rgba(0, 255, 98, 1);
-}
-
-.battery-widget .widget-container .label.status-full {
-    color: rgba(0, 255, 98, 1);
-}
-
-.battery-widget .widget-container .label.status-charging {
-    color: rgba(0, 200, 255, 1);
-}
-
-.notes-widget {
-    padding: 0;
-}
-
-.notes-widget .label {
-    font-size: 14px;
-    color: #dbfeb4;
-}
-
-.notes-widget .icon {
-    font-size: 16px;
-    color: #dbfeb4;
-}
-
-/* Notes Widget Menu */
-.notes-menu {
-    min-width: 400px;
-    max-width: 400px;
-    background-color: rgba(17, 17, 27, 0.4);
-}
-
-.notes-menu .note-item {
-    background-color: transparent;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.notes-menu .note-item:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-.notes-menu .note-item .icon {
-    font-size: 16px;
-    padding: 0 4px;
-}
-
-.notes-menu .delete-button {
-    color: #ff6b6b;
-    background: transparent;
-    border: none;
-    font-size: 8px;
-    padding: 7px 8px;
-    border-radius: 3px;
-}
-
-.notes-menu .delete-button:hover {
-    background-color: rgba(128, 128, 128, 0.5);
-}
-
-.notes-menu .copy-button {
-    color: #babfd3;
-    background: transparent;
-    border: none;
-    font-size: 16px;
-    padding: 4px 8px;
-    border-radius: 3px;
-}
-
-.notes-menu .copy-button:hover {
-    background-color: rgba(128, 128, 128, 0.5);
-}
-
-.notes-menu .copy-button:pressed {
-    color: #ffffff;
-}
-
-.notes-menu .note-item .title {
-    font-size: 13px;
-    font-family: 'Segoe UI'
-}
-
-.notes-menu .note-item .date {
-    font-size: 12px;
-    font-family: 'Segoe UI';
-    color: rgba(255, 255, 255, 0.4);
-}
-
-.notes-menu .empty-list {
-    font-family: 'Segoe UI';
-    color: rgba(255, 255, 255, 0.2);
-    font-size: 24px;
-    font-weight: 600;
-    padding: 10px 0 20px 0;
-}
-
-.notes-menu .add-button,
-.notes-menu .cancel-button {
-    padding: 8px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: none;
-    border-radius: 4px;
-    color: white;
-    font-family: 'Segoe UI'
-}
-
-.notes-menu .cancel-button {
-    margin-left: 4px;
-}
-
-.notes-menu .add-button:hover,
-.notes-menu .cancel-button:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.notes-menu .scroll-area {
-    background: transparent;
-    border: none;
-    border-radius: 0;
-}
-
-.notes-menu .note-input {
-    background-color: rgba(17, 17, 27, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    font-family: 'Segoe UI';
-    font-size: 14px;
-    max-height: 30px;
-    padding: 4px;
-    border-radius: 6px;
-}
-
-.note-input:focus {
-    border: 1px solid #89b4fa;
-}
+# This is default and very simple configuration file for Yasb. 
+# For more information about configuration options, please visit the Wiki https://github.com/amnweb/yasb/wiki
+watch_stylesheet: true
+watch_config: true
+debug: false
+update_check: true # Enable automatic update check.
+komorebi:
+  start_command: "komorebic start --whkd"
+  stop_command: "komorebic stop --whkd"
+  reload_command: "komorebic stop --whkd && komorebic start --whkd"
+bars:
+  primary-bar:
+    enabled: true
+    screens: ["*"]
+    class_name: "yasb-bar"
+    alignment:
+      position: "top"
+      center: false
+    animation:
+      enabled: true
+      duration: 400
+    blur_effect:
+      enabled: false
+      acrylic: false
+      dark_mode: false
+      round_corners: false
+      round_corners_type: "normal"
+      border_color: "system"
+    window_flags:
+      always_on_top: false
+      windows_app_bar: true
+    dimensions:
+      width: "100%"
+      height: 32
+    padding:
+      top: 2
+      left: 4
+      bottom: 3
+      right: 4
+    widgets:
+      left:
+      - "power_menu"
+      - "volume"
+      - "microphone"
+      - "brightness"
+      - "pomodoro-todo-grouper"
+      - "notifications"
+      # - "pomodoro"
+      # - "todo"
+      # - "home"
+      # - "komorebi_workspaces"
+      # - "komorebi_active_layout"
+      # - "active_window"
+      center:
+      - "media"
+      - "taskbar"
+      # - "disk"
+      right:
+      # - "weather"
+      - "systeminfo-grouper"
+      - "clock"
+      - "close_active_window"
+widgets:
+  home:
+    type: "yasb.home.HomeWidget"
+    options:
+      label: "<span>\udb81\udf17</span>"
+      menu_list:
+      - { title: "User Home", path: "~" }
+      - { title: "Download", path: "~\\Downloads" }
+      - { title: "Documents", path: "~\\Documents" }
+      - { title: "Pictures", path: "~\\Pictures" }
+      system_menu: true
+      power_menu: true
+      blur: false
+  media:
+    type: "yasb.media.MediaWidget"
+    options:
+      label: "{title}"
+      label_alt: "{artist} - {title}"
+      max_field_size:
+        label: 16
+        label_alt: 24
+      show_thumbnail: true
+      controls_only: false
+      controls_left: true
+      controls_hide: true
+      hide_empty: true
+      thumbnail_alpha: 100
+      thumbnail_padding: 16
+      thumbnail_corner_radius: 0
+      thumbnail_edge_fade: true
+      icons:
+        prev_track: "\udb81\udcae"
+        next_track: "\udb81\udcad"
+        play: "\udb81\udc0a"
+        pause: "\udb80\udfe4"
+      media_menu:
+        blur: false
+        round_corners: false
+        alignment: "right"
+        direction: "down"
+        offset_top: 6
+        offset_left: 0
+        thumbnail_corner_radius: 4
+        thumbnail_size: 100
+        max_title_size: 80
+        max_artist_size: 20
+        show_source: true
+      label_shadow:
+        enabled: true
+        color: "#000000"
+        radius: 2
+        offset: [ 1, 1 ]
+      scrolling_label:
+        enabled: true
+        update_interval_ms: 50
+        style: "left"  # can be "left", "right", "bounce", "bounce-ease"
+        separator: " | "
+        label_padding: 1
+      callbacks:
+        on_left: "toggle_media_menu"
+        on_middle: "do_nothing"
+        on_right: "toggle_label"
+  active_window:
+    type: "yasb.active_window.ActiveWindowWidget"
+    options:
+      label: "{win[title]}"
+      label_alt: "{win[process][name]}"
+      label_no_window: ""
+      label_icon: true
+      label_icon_size: 14
+      max_length: 30
+      max_length_ellipsis: "..."
+      monitor_exclusive: true
+  clock:
+    type: "yasb.clock.ClockWidget"
+    options:
+      label: "{%a, %d %b %H:%M:%S}"
+      label_alt: "{%A, %d %B %Y %H:%M:%S}"
+      timezones: []
+      calendar: 
+        blur: false
+        round_corners: false
+        alignment: "center"
+        direction: "down"
+      callbacks:
+        on_left: "toggle_calendar"
+        on_right: "toggle_label"
+  komorebi_workspaces:
+    type: "komorebi.workspaces.WorkspaceWidget"
+    options:
+      label_offline: "\u23fc Offline"
+      label_workspace_btn: "\u000d"
+      label_workspace_active_btn: "\u000d"
+      label_workspace_populated_btn: "\u000d"
+      label_default_name: "{index}"
+      label_zero_index: false
+      hide_empty_workspaces: false
+      hide_if_offline: true
+      animation: true
+  komorebi_active_layout:
+    type: "komorebi.active_layout.ActiveLayoutWidget"
+    options:
+      hide_if_offline: true
+      label: "{icon}"
+      layouts:
+        [
+          "bsp",
+          "columns",
+          "rows",
+          "grid",
+          "vertical_stack",
+          "horizontal_stack",
+          "ultrawide_vertical_stack",
+          "right_main_vertical_stack",
+        ]
+      layout_icons:
+        bsp: "BSP"
+        columns: "COLS"
+        rows: "ROWS"
+        grid: "GRID"
+        vertical_stack: "V-STACK"
+        horizontal_stack: "H-STACK"
+        ultrawide_vertical_stack: "W-STACK"
+        right_main_vertical_stack: "RMV-STACK"
+        monocle: "MONOCLE"
+        maximized: "MAX"
+        floating: "FLOATING"
+        paused: "PAUSED"
+      callbacks:
+        on_left: "next_layout"
+        on_middle: "toggle_monocle"
+        on_right: "prev_layout"
+  weather:
+    type: "yasb.weather.WeatherWidget"
+    options:
+      label: "<span>{icon}</span> {temp}"
+      label_alt: "{location}: Min {min_temp}, Max {max_temp}, Humidity {humidity}"
+      api_key: env
+      update_interval: 600
+      hide_decimal: true
+      location: env
+      callbacks:
+        on_left: "toggle_card"
+        on_middle: "do_nothing"
+        on_right: "toggle_label"
+      icons:
+        sunnyDay: "\ue30d"
+        clearNight: "\ue32b"
+        cloudyDay: "\ue312"
+        cloudyNight: "\ue311"
+        rainyDay: "\ue308"
+        rainyNight: "\ue333"
+        snowyDay: "\ue30a"
+        snowyNight: "\ue335"
+        blizzardDay: "\udb83\udf36"
+        blizzardNight: "\udb83\udf36"
+        foggyDay: "\ue303"
+        foggyNight: "\ue346"
+        thunderstormDay: "\ue30f"
+        thunderstormNight: "\ue338"
+        default: "\uebaa"
+      weather_card:
+        blur: false
+        round_corners: false
+        alignment: "right"
+        direction: "down"
+        icon_size: 64
+        show_hourly_forecast: true
+        time_format: "24h"
+        hourly_point_spacing: 76
+        hourly_icon_size: 32
+        icon_smoothing: true
+        temp_line_width: 2
+        current_line_color: "#8EAEE8"
+        current_line_width: 1
+        current_line_style: "dot"
+  volume:
+    type: "yasb.volume.VolumeWidget"
+    options:
+      label: "<span>{icon}</span>"
+      label_alt: "{volume}"
+      tooltip: false
+      volume_icons:
+        - "\ueee8"
+        - "\uf026"
+        - "\uf027"
+        - "\uf027"
+        - "\uf028"
+      callbacks:
+        on_left: "toggle_volume_menu"
+        on_right: "toggle_mute"
+        on_middle: "exec cmd.exe /c start ms-settings:sound"
+      audio_menu:
+        blur: true # Enable blur effect for the menu
+        round_corners: true # Enable round corners for the menu (not supported on Windows 10)
+        round_corners_type: "normal" # Set the type of round corners for the menu (normal, small) (not supported on Windows 10)
+        border_color: "system" # Set the border color for the menu, "system", Hex color or None
+        alignment: "right" # Set the alignment of the menu (left, right, center)
+        direction: "down" # Set the direction of the menu (up, down)
+        offset_top: 6 # Set the top offset of the menu
+        offset_left: 0 # Set the left offset of the menu
+        show_apps: true # Whether to show the list of applications with audio sessions
+        show_app_labels: false # Whether to show application labels in the audio menu
+        show_app_icons: true # Whether to show application icons in the audio menu
+        show_apps_expanded: false # Whether application volumes are expanded by default when opening the menu
+        app_icons: # Icons for the toggle button to expand/collapse application volumes
+          toggle_down: "\uf078" # Icon for btn collapsed state
+          toggle_up: "\uf077" # Icon for btn expanded state
+  microphone:
+    type: "yasb.microphone.MicrophoneWidget"
+    options:
+      label: "<span>{icon}</span>"
+      label_alt: "<span>{icon}</span>"
+      icons:
+        normal: "\udb80\udf6c"
+        muted: "\udb80\udf6d"
+      callbacks:
+        on_left: "toggle_mic_menu"
+        on_right: "toggle_mute"
+        on_middle: "exec cmd.exe /c start ms-settings:sound"
+  power_menu:
+    type: "yasb.power_menu.PowerMenuWidget"
+    options:
+      label: "\uf011"
+      uptime: True
+      blur: False
+      blur_background: True
+      animation_duration: 200
+      button_row: 5
+      buttons:
+        shutdown: ["\uf011", "Shut Down"]
+        restart: ["\uead2", "Restart"]
+        signout: ["\udb80\udf43", "Sign out"]
+        hibernate: ["\uf28e", "Hibernate"]
+        sleep: ["\u23fe", "Sleep"]
+        cancel: ["", "Cancel"]
+  notifications:
+    type: "yasb.notifications.NotificationsWidget"
+    options:
+      label: "<span>\uf476</span> {count}"
+      label_alt: "{count} notifications"
+      hide_empty: true
+      tooltip: false
+      callbacks:
+        on_left: "toggle_notification"
+        on_right: "do_nothing"
+        on_middle: "toggle_label"
+
+  battery:
+    type: "yasb.battery.BatteryWidget"
+    options:
+      label: "<span>{icon}</span> {percent}%"
+      label_alt: "<span>{icon}</span> {percent}% | time: {time_remaining}"
+      update_interval: 2000
+      time_remaining_natural: False
+      hide_unsupported: True
+      charging_options:
+        icon_format: "{charging_icon}"
+        blink_charging_icon: true
+        blink_interval: 500
+      status_thresholds:
+        critical: 10
+        low: 25
+        medium: 75
+        high: 95
+        full: 100
+      status_icons:
+        icon_charging: "\uf0e7"
+        icon_critical: "\uf244"
+        icon_low: "\uf243"
+        icon_medium: "\uf242"
+        icon_high: "\uf241"
+        icon_full: "\uf240"
+      label_shadow:
+        enabled: true
+        color: "black"
+        radius: 3
+        offset: [ 1, 1 ]
+
+  cpu:
+    type: "yasb.cpu.CpuWidget"
+    options:
+      label: "<span>\uf4bc</span> {info[percent][total]}%"
+      label_alt: "<span>\uf437</span> {info[histograms][cpu_percent]}"
+      update_interval: 2000
+      hide_decimal: true
+      cpu_thresholds:
+        low: 25
+        medium: 50
+        high: 90
+      histogram_icons:
+        - "\u2581" # 0%
+        - "\u2581" # 10%
+        - "\u2582" # 20%
+        - "\u2583" # 30%
+        - "\u2584" # 40%
+        - "\u2585" # 50%
+        - "\u2586" # 60%
+        - "\u2587" # 70%
+        - "\u2588" # 80%+
+      histogram_num_columns: 8
+      callbacks:
+        on_right: "exec cmd /c Taskmgr"
+      label_shadow:
+        enabled: true
+        color: "black"
+        radius: 3
+        offset: [ 1, 1 ]
+
+  memory:
+    type: "yasb.memory.MemoryWidget"
+    options:
+      label: "<span>\uefc5</span> {virtual_mem_percent}%"
+      label_alt: "<span>\uefc5</span> R:{virtual_mem_percent}% S:{swap_mem_percent}%"
+      update_interval: 2000
+      hide_decimal: true
+      callbacks:
+        on_left: "toggle_label"
+        on_middle: "do_nothing"
+        on_right: "do_nothing"
+      memory_thresholds:
+        low: 0
+        medium: 80
+        high: 100
+      histogram_icons:
+        - "\u2581" # 0%
+        - "\u2581" # 10%
+        - "\u2582" # 20%
+        - "\u2583" # 30%
+        - "\u2584" # 40%
+        - "\u2585" # 50%
+        - "\u2586" # 60%
+        - "\u2587" # 70%
+        - "\u2588" # 80%+
+      label_shadow:
+        enabled: true
+        color: "black"
+        radius: 3
+        offset: [ 1, 1 ]
+
+  pomodoro:
+    type: "yasb.pomodoro.PomodoroWidget"
+    options:
+      label: "<span>{icon}</span> {remaining}"
+      label_alt: "<span>{icon}</span> {session}/{total_sessions} - {status}"
+      work_duration: 25
+      break_duration: 5
+      long_break_duration: 15
+      long_break_interval: 4
+      auto_start_breaks: true
+      auto_start_work: true
+      sound_notification: true
+      show_notification: true
+      hide_on_break: false
+      session_target: 8
+      icons:
+        work: "\uf252"
+        break: "\uf253"
+        paused: "\uf254"
+      menu:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "System"
+        alignment: "right"
+        direction: "down"
+        offset_top: 6
+        offset_left: 0
+        circle_background_color: "#09ffffff"
+        circle_work_progress_color: "#88c0d0"
+        circle_break_progress_color: "#a3be8c"
+        circle_thickness: 8
+        circle_size: 160
+      callbacks:
+        on_left: "toggle_menu"
+        on_middle: "reset_timer"
+        on_right: "toggle_label"
+      label_shadow:
+        enabled: true
+        color: "black"
+        radius: 3
+        offset: [ 1, 1 ]
+
+  disk:
+    type: "yasb.disk.DiskWidget"
+    options:
+        label: "{volume_label}:{space[used][percent]}"
+        label_alt: "{volume_label} {space[used][gb]} / {space[total][gb]}"
+        volume_label: "C"
+        update_interval: 60
+        decimal_display: 0
+        group_label:
+          volume_labels: ["C"]
+          show_label_name: true
+          blur: True
+          round_corners: True
+          round_corners_type: "small"
+          border_color: "System"
+          alignment: "right"
+          direction: "down"
+        callbacks:
+          on_left: "toggle_group"
+          on_middle: "toggle_label"
+          on_right: "exec explorer C:\\" # Open disk C in file explorer
+        label_shadow:
+          enabled: true
+          color: "black"
+          radius: 3
+          offset: [ 1, 1 ]
+        disk_thresholds:
+            low: 0
+            medium: 85
+            high: 100
+
+  systeminfo-grouper:
+    type: "yasb.grouper.GrouperWidget"
+    options:
+      class_name: "systeminfo-grouper"
+      widgets: [
+        "cpu",
+        "memory",
+        "disk",
+        "battery"
+      ]
+
+  pomodoro-todo-grouper:
+    type: "yasb.grouper.GrouperWidget"
+    options:
+      class_name: "systeminfo-grouper"
+      widgets: [
+        "pomodoro",
+        "todo",
+        "notes"
+      ]
+
+
+  todo:
+    type: "yasb.todo.TodoWidget"
+    options:
+      label: "\uf0ae {count}/{completed}"
+      label_alt: "\uf0ae Tasks: {count}"
+      # data_path: "~/Documents/my-todos.json"  # Optional: custom JSON file path
+      menu:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "system"
+        alignment: "center"
+        direction: "down"
+        offset_top: 6
+        offset_left: 0
+      icons:
+        add: "\uf501 New Task"
+        edit: "Edit"
+        delete: "Delete"
+        date: "\ue641"
+        category: "\uf412"
+        checked: "\udb80\udd34"
+        unchecked: "\udb80\udd30"
+        sort: "\ueab4"
+        no_tasks: "\uf4a0"
+      categories:
+        default:
+          label: "General"
+        soon:
+          label: "Complete soon"
+        today:
+          label: "End of day"
+        urgent:
+          label: "Urgent"
+        important:
+          label: "Important"
+      callbacks:
+        on_left: "toggle_menu"
+        on_middle: "do_nothing"
+        on_right: "toggle_label"
+
+  brightness:
+    type: "yasb.brightness.BrightnessWidget"
+    options:
+      label: "<span>{icon}</span>"
+      label_alt: "Brightness {percent}%"
+      tooltip: true
+      hide_unsupported: true
+      brightness_toggle_level: [0, 50, 100]
+      auto_light: false
+      auto_light_icon: "\udb80\udce1"
+      auto_light_night_level: 35
+      auto_light_night_start_time: "19:00"
+      auto_light_night_end_time: "06:45"
+      auto_light_day_level: 75
+      brightness_icons: [
+        "\udb80\udcde",  # Icon for 0-25% brightness
+        "\udb80\udcdd",  # Icon for 26-50% brightness
+        "\udb80\udcdf",  # Icon for 51-75% brightness
+        "\udb80\udce0"   # Icon for 76-100% brightness
+      ]
+      brightness_menu:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "System"
+        alignment: "right"
+        direction: "down"
+      callbacks:
+          on_left: "toggle_brightness_menu"
+          # on_right: "toggle_group"
+      label_shadow:
+        enabled: true
+        color: "black"
+        radius: 3
+        offset: [ 1, 1 ]
+
+  
+  taskbar:
+    type: "yasb.taskbar.TaskbarWidget"
+    options:
+      icon_size: 16
+      tooltip: true
+      show_only_visible: false
+      strict_filtering: true
+      monitor_exclusive: false
+      animation:
+        enabled: true
+      preview:
+        enabled: false
+        width: 240
+        delay: 400
+        padding: 8
+        margin: 8
+      title_label:
+        enabled: false
+        show: "always"
+        min_length: 10
+        max_length: 30
+      ignore_apps:
+        processes: []
+        titles: []
+        classes: []
+  close_active_window:
+    type: "yasb.custom.CustomWidget"
+    # config_dir: "~/.config/yasb"
+    options:
+      label: "<span>\uf00d</span>"
+      label_alt: "\uf00d"
+      tooltip: true
+      tooltip_label: "Close active window"
+      class_name: "close-app-custom-widget"
+      callbacks:
+        on_left: "exec pwsh -Command AutoHotkey.exe $env:USERPROFILE\\.config\\yasb\\close_active_window.ahk"
+
+
+  notes:
+    type: "yasb.notes.NotesWidget"
+    options:
+      label: "<span>\udb82\udd0c</span> {count}"
+      label_alt: "{count} notes"
+      # data_path: "~/Documents/my-notes.json"  # Optional: custom JSON file path
+      menu:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "System"
+        alignment: "right"
+        direction: "down"
+        offset_top: 6
+        offset_left: 0
+        max_title_size: 150
+        show_date_time: true
+      icons:
+        note: "\udb82\udd0c"
+        delete: "\ueab8"
+        copy: "\uebcc"
+      callbacks:
+        on_left: "toggle_menu"
+        on_middle: "do_nothing"
+        on_right: "toggle_label"
+      label_shadow:
+        enabled: true
+        color: "black"
+        radius: 3
+        offset: [ 1, 1 ]
