@@ -9570,3 +9570,79 @@ KeyError: 'powershell'
 2026-01-07 18:20:10,001 [INFO] [MainThread] [root/watcher.py:54]: Created file watcher for path C:\Users\Ahmed.H\.config\yasb
 2026-01-07 18:20:10,073 [DEBUG] [MainThread] [qasync._windows._EventPoller/_windows.py:215]: Starting (proactor: <_IocpProactor overlapped#=0 result#=0>)...
 2026-01-07 18:20:10,074 [DEBUG] [Dummy-5] [qasync._windows._EventWorker/_windows.py:195]: Thread started
+2026-01-07 18:21:19,281 [INFO] [MainThread] [root/bar_manager.py:80]: Screens updated. Re-initialising all bars.
+2026-01-07 18:21:19,281 [INFO] [MainThread] [root/controller.py:15]: Reloading Application because of screen update.
+2026-01-07 18:21:19,394 [INFO] [MainThread] [cli_server/cli_server.py:112]: Log pipe server stopped
+2026-01-07 18:21:19,395 [DEBUG] [MainThread] [cli_server/cli_server.py:206]: CLI server stopped
+2026-01-07 18:21:27,640 [INFO] [MainThread] [root/bar_manager.py:92]: Stopping WindowsNotificationEventListener...
+2026-01-07 18:21:27,642 [INFO] [MainThread] [core.utils.widgets.taskbar.window_manager/window_manager.py:218]: TaskbarWindowManager stopped
+2026-01-07 18:21:27,646 [DEBUG] [MainThread] [qasync._windows._EventPoller/_windows.py:220]: Stopping worker thread...
+2026-01-07 18:21:27,655 [DEBUG] [Dummy-5] [qasync._windows._EventWorker/_windows.py:204]: Exiting thread
+2026-01-07 18:21:27,658 [DEBUG] [MainThread] [qasync._windows._IocpProactor/_windows.py:78]: Closing
+2026-01-07 18:21:28,218 [INFO] [MainThread] [root/log.py:69]: YASB v1.8.6
+2026-01-07 18:21:28,218 [INFO] [Thread-1 (_run_server)] [cli_server/cli_server.py:212]: CLI server started v1.1.4
+2026-01-07 18:21:28,219 [INFO] [MainThread] [cli_server/cli_server.py:104]: Log pipe server started
+2026-01-07 18:21:29,552 [INFO] [MainThread] [root/service.py:39]: AudioInputService starting...
+2026-01-07 18:21:29,642 [INFO] [MainThread] [root/service.py:48]: AudioOutputService starting...
+2026-01-07 18:21:29,885 [DEBUG] [MainThread] [root/pin_manager.py:163]: Loaded 3 pinned apps from C:\Users\Ahmed.H\AppData\Local\YASB\taskbar_pinned.json
+2026-01-07 18:21:30,559 [INFO] [MainThread] [core.utils.widgets.taskbar.window_manager/window_manager.py:191]: TaskbarWindowManager is starting...
+2026-01-07 18:21:31,347 [INFO] [MainThread] [root/bar_manager.py:85]: Starting WindowsNotificationEventListener...
+2026-01-07 18:21:31,357 [INFO] [MainThread] [root/watcher.py:54]: Created file watcher for path C:\Users\Ahmed.H\.config\yasb
+2026-01-07 18:21:31,498 [DEBUG] [MainThread] [qasync._windows._EventPoller/_windows.py:215]: Starting (proactor: <_IocpProactor overlapped#=0 result#=0>)...
+2026-01-07 18:21:31,499 [DEBUG] [Dummy-5] [qasync._windows._EventWorker/_windows.py:195]: Thread started
+2026-01-07 18:22:12,087 [INFO] [MainThread] [root/bar_manager.py:80]: Screens updated. Re-initialising all bars.
+2026-01-07 18:22:12,088 [INFO] [MainThread] [root/controller.py:15]: Reloading Application because of screen update.
+2026-01-07 18:22:12,188 [INFO] [MainThread] [cli_server/cli_server.py:112]: Log pipe server stopped
+2026-01-07 18:22:12,188 [DEBUG] [MainThread] [cli_server/cli_server.py:206]: CLI server stopped
+2026-01-07 18:22:12,189 [INFO] [MainThread] [root/bar.py:154]: Screen geometry changed. Updating position for bar primary-bar on screen \\.\DISPLAY1
+2026-01-07 18:22:24,894 [INFO] [MainThread] [root/bar_manager.py:80]: Screens updated. Re-initialising all bars.
+2026-01-07 18:22:24,894 [INFO] [MainThread] [root/controller.py:15]: Reloading Application because of screen update.
+2026-01-07 18:22:24,995 [INFO] [MainThread] [cli_server/cli_server.py:112]: Log pipe server stopped
+2026-01-07 18:22:24,995 [DEBUG] [MainThread] [cli_server/cli_server.py:206]: CLI server stopped
+2026-01-07 18:22:25,023 [INFO] [MainThread] [root/bar_manager.py:80]: Screens updated. Re-initialising all bars.
+2026-01-07 18:22:25,023 [INFO] [MainThread] [root/controller.py:15]: Reloading Application because of screen update.
+2026-01-07 18:22:25,127 [INFO] [MainThread] [cli_server/cli_server.py:112]: Log pipe server stopped
+2026-01-07 18:22:25,128 [DEBUG] [MainThread] [cli_server/cli_server.py:206]: CLI server stopped
+2026-01-07 18:22:26,260 [INFO] [MainThread] [root/log.py:69]: YASB v1.8.6
+2026-01-07 18:22:26,260 [INFO] [Thread-1 (_run_server)] [cli_server/cli_server.py:212]: CLI server started v1.1.4
+2026-01-07 18:22:26,261 [INFO] [MainThread] [cli_server/cli_server.py:104]: Log pipe server started
+2026-01-07 18:22:26,261 [INFO] [MainThread] [root/main.py:45]: Waiting for previous YASB instance to exit...
+2026-01-07 18:22:26,263 [INFO] [MainThread] [root/log.py:69]: YASB v1.8.6
+2026-01-07 18:22:26,264 [INFO] [Thread-1 (_run_server)] [cli_server/cli_server.py:212]: CLI server started v1.1.4
+2026-01-07 18:22:26,264 [INFO] [MainThread] [cli_server/cli_server.py:104]: Log pipe server started
+2026-01-07 18:22:26,264 [INFO] [MainThread] [root/main.py:45]: Waiting for previous YASB instance to exit...
+2026-01-07 18:22:26,270 [INFO] [MainThread] [root/log.py:69]: YASB v1.8.6
+2026-01-07 18:22:26,271 [INFO] [Thread-1 (_run_server)] [cli_server/cli_server.py:212]: CLI server started v1.1.4
+2026-01-07 18:22:26,271 [INFO] [MainThread] [cli_server/cli_server.py:104]: Log pipe server started
+2026-01-07 18:22:26,271 [INFO] [MainThread] [root/main.py:45]: Waiting for previous YASB instance to exit...
+2026-01-07 18:22:34,529 [INFO] [MainThread] [root/main.py:71]: Previous instance exited, continuing startup.
+2026-01-07 18:22:35,858 [INFO] [MainThread] [root/service.py:39]: AudioInputService starting...
+2026-01-07 18:22:35,934 [INFO] [MainThread] [root/service.py:48]: AudioOutputService starting...
+2026-01-07 18:22:36,042 [DEBUG] [MainThread] [root/pin_manager.py:163]: Loaded 3 pinned apps from C:\Users\Ahmed.H\AppData\Local\YASB\taskbar_pinned.json
+2026-01-07 18:22:36,284 [ERROR] [MainThread] [root/main.py:68]: Timeout waiting for previous instance. Aborting start.
+2026-01-07 18:22:36,292 [ERROR] [MainThread] [root/main.py:68]: Timeout waiting for previous instance. Aborting start.
+2026-01-07 18:22:36,450 [INFO] [MainThread] [core.utils.widgets.taskbar.window_manager/window_manager.py:191]: TaskbarWindowManager is starting...
+2026-01-07 18:22:36,457 [INFO] [MainThread] [root/bar_manager.py:85]: Starting WindowsNotificationEventListener...
+2026-01-07 18:22:36,460 [INFO] [MainThread] [root/watcher.py:54]: Created file watcher for path C:\Users\Ahmed.H\.config\yasb
+2026-01-07 18:22:36,536 [DEBUG] [MainThread] [qasync._windows._EventPoller/_windows.py:215]: Starting (proactor: <_IocpProactor overlapped#=0 result#=0>)...
+2026-01-07 18:22:36,537 [DEBUG] [Dummy-5] [qasync._windows._EventWorker/_windows.py:195]: Thread started
+2026-01-07 18:25:30,612 [INFO] [MainThread] [root/controller.py:15]: Reloading Application because of config change.
+2026-01-07 18:25:30,719 [INFO] [MainThread] [cli_server/cli_server.py:112]: Log pipe server stopped
+2026-01-07 18:25:30,719 [DEBUG] [MainThread] [cli_server/cli_server.py:206]: CLI server stopped
+2026-01-07 18:25:30,729 [INFO] [MainThread] [root/bar_manager.py:76]: Successfully loaded updated config and re-initialised all bars.
+2026-01-07 18:25:31,025 [INFO] [MainThread] [root/bar_manager.py:92]: Stopping WindowsNotificationEventListener...
+2026-01-07 18:25:31,037 [INFO] [MainThread] [core.utils.widgets.taskbar.window_manager/window_manager.py:218]: TaskbarWindowManager stopped
+2026-01-07 18:25:31,066 [DEBUG] [MainThread] [qasync._windows._EventPoller/_windows.py:220]: Stopping worker thread...
+2026-01-07 18:25:31,072 [DEBUG] [Dummy-5] [qasync._windows._EventWorker/_windows.py:204]: Exiting thread
+2026-01-07 18:25:31,075 [DEBUG] [MainThread] [qasync._windows._IocpProactor/_windows.py:78]: Closing
+2026-01-07 18:25:31,998 [INFO] [MainThread] [root/log.py:69]: YASB v1.8.6
+2026-01-07 18:25:31,999 [INFO] [Thread-1 (_run_server)] [cli_server/cli_server.py:212]: CLI server started v1.1.4
+2026-01-07 18:25:31,999 [INFO] [MainThread] [cli_server/cli_server.py:104]: Log pipe server started
+2026-01-07 18:25:33,399 [INFO] [MainThread] [root/service.py:39]: AudioInputService starting...
+2026-01-07 18:25:33,488 [INFO] [MainThread] [root/service.py:48]: AudioOutputService starting...
+2026-01-07 18:25:33,786 [DEBUG] [MainThread] [root/pin_manager.py:163]: Loaded 3 pinned apps from C:\Users\Ahmed.H\AppData\Local\YASB\taskbar_pinned.json
+2026-01-07 18:25:34,157 [INFO] [MainThread] [core.utils.widgets.taskbar.window_manager/window_manager.py:191]: TaskbarWindowManager is starting...
+2026-01-07 18:25:34,172 [INFO] [MainThread] [root/bar_manager.py:85]: Starting WindowsNotificationEventListener...
+2026-01-07 18:25:34,174 [INFO] [MainThread] [root/watcher.py:54]: Created file watcher for path C:\Users\Ahmed.H\.config\yasb
+2026-01-07 18:25:34,271 [DEBUG] [MainThread] [qasync._windows._EventPoller/_windows.py:215]: Starting (proactor: <_IocpProactor overlapped#=0 result#=0>)...
+2026-01-07 18:25:34,272 [DEBUG] [Dummy-5] [qasync._windows._EventWorker/_windows.py:195]: Thread started

@@ -646,8 +646,8 @@ widgets:
       tooltip_label: "Toggles Windows Task Bar"
       class_name: "toggle-task-bar-custom-widget"
       callbacks:
-        on_left: "exec pwsh -Command AutoHotkey $env:USERPROFILE\\.config\\yasb\\ahk_codes\\showDesktop.ahk"
-        on_right: "exec pwsh -Command AutoHotkey $env:USERPROFILE\\.config\\yasb\\ahk_codes\\showDesktop.ahk"
+        on_left: "exec pwsh -Command AutoHotkey $env:USERPROFILE\\.config\\yasb\\ahk_codes\\desktopShow.ahk"
+        on_right: "exec pwsh -Command AutoHotkey $env:USERPROFILE\\.config\\yasb\\ahk_codes\\desktopShow.ahk"
 
   notes:
     type: "yasb.notes.NotesWidget"
