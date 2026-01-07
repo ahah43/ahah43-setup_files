@@ -1,1 +1,1 @@
-WinClose("A")
+WinKill("A")
