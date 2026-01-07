@@ -1,0 +1,81 @@
+/* Global context menu style */
+.context-menu,
+.context-menu .menu-checkbox {
+    background-color: var(--bg-color1);
+    border: none;
+    padding: 4px 0px;
+    font-family: 'Segoe UI';
+    font-size: 12px;
+    color: var(--text1)
+}
+
+.context-menu::right-arrow {
+    width: 8px;
+    height: 8px;
+    padding-right: 24px;
+}
+
+.context-menu::item,
+.context-menu .menu-checkbox {
+    background-color: transparent;
+    padding: 6px 12px;
+    margin: 2px 6px;
+    border-radius: 6px;
+    min-width: 100px;
+}
+
+.context-menu::item:selected,
+.context-menu .menu-checkbox:hover {
+    background-color: var(--bg-color2);
+    color: #FFFFFF;
+}
+
+.context-menu::separator {
+    height: 1px;
+    background-color: #404040;
+    margin: 4px 8px;
+}
+
+.context-menu::item:disabled {
+    color: #666666;
+    background-color: transparent;
+}
+
+.context-menu .menu-checkbox .checkbox {
+    border: none;
+    padding: 8px 16px;
+    font-size: 12px;
+    margin: 0;
+    color: var(--text1);
+    font-family: 'Segoe UI'
+}
+
+.context-menu .submenu::item:disabled {
+    margin: 0;
+    padding-left: 16px;
+}
+
+.context-menu .menu-checkbox .checkbox:unchecked {
+    color: var(--text2)
+}
+
+.context-menu .menu-checkbox .checkbox::indicator {
+    width: 12px;
+    height: 12px;
+    margin-left: 0px;
+    margin-right: 8px;
+}
+
+.context-menu .menu-checkbox .checkbox::indicator:unchecked {
+    background: #444444;
+    border-radius: 2px;
+}
+
+.context-menu .menu-checkbox .checkbox::indicator:checked {
+    background: var(--blue);
+    border-radius: 2px;
+}
+
+.context-menu .menu-checkbox .checkbox:focus {
+    outline: none;
+}

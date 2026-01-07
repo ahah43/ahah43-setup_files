@@ -1,0 +1,47 @@
+.taskbar-widget .app-container {
+    margin: 4px 2px;
+    border-radius: 4px;
+    padding: 0 4px;
+}
+
+.taskbar-widget .app-container.foreground {
+    background-color: #00ff37;
+}
+
+.taskbar-widget .app-container.flashing {
+    background-color: rgba(255, 106, 106, 0.63);
+}
+
+.taskbar-widget .app-container.running {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.taskbar-widget .app-container:hover {
+    background-color: rgba(255, 230, 0, 0.707);
+}
+
+.taskbar-widget .app-container .app-title {
+    padding-left: 4px;
+}
+
+/* Taskbar preview popup is very limited in styling options, do not use margins/paddings here */
+.taskbar-preview {
+    border-radius: 8px;
+    background-color: #2b2c2d;
+}
+
+.taskbar-preview.flashing {
+    background-color: #7f434a;
+}
+
+.taskbar-preview .header {
+    padding-bottom: 12px;
+    padding-top: 4px;
+}
+
+.taskbar-preview .header .title {
+    color: #d6d6d6;
+    font-family: "Segoe UI";
+    font-weight: 600;
+    font-size: 13px;
+}

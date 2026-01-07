@@ -1,0 +1,32 @@
+.komorebi-active-layout {
+    padding: 0
+}
+
+.komorebi-workspaces .offline-status {
+    color: var(--text4);
+    font-size: 12px;
+    padding: 0 0 0 4px;
+    font-weight: 600;
+}
+
+.komorebi-workspaces .ws-btn {
+    border: none;
+    background-color: var(--text4);
+    margin: 0 3px;
+    height: 9px;
+    width: 9px;
+    border-radius: 4px;
+}
+
+.komorebi-workspaces .ws-btn:hover {
+    color: var(--text2);
+}
+
+.komorebi-workspaces .ws-btn.populated {
+    background-color: var(--lavender);
+}
+
+.komorebi-workspaces .ws-btn.active {
+    background-color: var(--blue);
+    width: 36px;
+}

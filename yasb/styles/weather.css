@@ -1,0 +1,57 @@
+.weather-widget .icon {
+    font-size: 18px;
+    margin: 0 2px 1px 0;
+    color: var(--yellow);
+}
+
+.weather-card {
+    background-color: var(--bg-color1);
+    border-radius: 8px;
+    min-width: 540px;
+    border: 1px solid var(--bg-color2);
+}
+
+.weather-card-today .label {
+    font-size: 12px;
+}
+
+.weather-card-today .label.location {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.weather-card-today .label.alert {
+    font-size: 12px;
+    font-weight: 700;
+    background-color: rgba(247, 199, 42, 0.05);
+    border: 1px solid rgba(247, 209, 42, 0.1);
+    color: rgba(196, 181, 162, 0.85);
+    border-radius: 6px;
+    padding: 5px 0;
+}
+
+.weather-card-day {
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background-color: rgba(17, 17, 27, 0.2);
+}
+
+.weather-card-day.active {
+    border: 1px solid rgb(61, 61, 80);
+}
+
+.weather-card-day .label {
+    font-size: 12px;
+}
+
+.weather-card .hourly-container {
+    background-color: transparent;
+    min-height: 150px;
+    border: none
+}
+
+.weather-card .hourly-data {
+    background-color: #FAE93F;
+    font-size: 12px;
+    font-weight: bold;
+}

@@ -1,0 +1,19 @@
+.battery-widget .widget-container .label.status-low {
+    color: rgba(255, 0, 0, 1);
+}
+
+.battery-widget .widget-container .label.status-medium {
+    color: rgba(255, 255, 0, 1);
+}
+
+.battery-widget .widget-container .label.status-high {
+    color: rgba(0, 255, 98, 1);
+}
+
+.battery-widget .widget-container .label.status-full {
+    color: rgba(0, 255, 98, 1);
+}
+
+.battery-widget .widget-container .label.status-charging {
+    color: rgba(0, 200, 255, 1);
+}

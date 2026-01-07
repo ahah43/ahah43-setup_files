@@ -1,0 +1,11 @@
+.cpu-widget .label.status-low {
+    color: rgba(0, 255, 98, 1);
+}
+
+.cpu-widget .label.status-medium {
+    color: rgba(255, 255, 0, 1);
+}
+
+.cpu-widget .label.status-high {
+    color: rgba(255, 0, 0, 1);
+}

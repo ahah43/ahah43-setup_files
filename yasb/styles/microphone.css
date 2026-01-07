@@ -1,0 +1,11 @@
+.microphone-widget {
+    padding: 0 6px 0 6px;
+}
+
+.microphone-widget .icon {
+    font-size: 18px;
+}
+
+.microphone-widget .icon {
+    color: var(--mauve);
+}

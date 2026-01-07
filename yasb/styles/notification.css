@@ -1,0 +1,11 @@
+.notification-widget {
+    padding: 0 0px 0 4px;
+}
+
+.notification-widget .icon {
+    font-size: 14px;
+}
+
+.notification-widget .icon.new-notification {
+    color: var(--blue);
+}
