@@ -246,8 +246,8 @@ widgets:
         - "\uf027"
         - "\uf028"
       callbacks:
-        on_left: "toggle_volume_menu"
-        on_right: "toggle_mute"
+        on_right: "toggle_volume_menu"
+        on_left: "toggle_mute"
         on_middle: "exec cmd.exe /c start ms-settings:sound"
       audio_menu:
         blur: true # Enable blur effect for the menu
@@ -274,8 +274,8 @@ widgets:
         normal: "\udb80\udf6c"
         muted: "\udb80\udf6d"
       callbacks:
-        on_left: "toggle_mic_menu"
-        on_right: "toggle_mute"
+        on_right: "toggle_mic_menu"
+        on_left: "toggle_mute"
         on_middle: "exec cmd.exe /c start ms-settings:sound"
   power_menu:
     type: "yasb.power_menu.PowerMenuWidget"
@@ -487,10 +487,10 @@ widgets:
     options:
       class_name: "systeminfo-grouper"
       widgets: [
-        "volume",
-        "microphone",
-        "brightness",
         "power_menu",
+        "brightness",
+        "microphone",
+        "volume",
       ]
 
   pomodoro-todo-grouper:
@@ -552,7 +552,7 @@ widgets:
       label_alt: "Brightness {percent}%"
       tooltip: true
       hide_unsupported: true
-      brightness_toggle_level: [0, 50, 100]
+      brightness_toggle_level: [50, 75, 100]
       auto_light: false
       auto_light_icon: "\udb80\udce1"
       auto_light_night_level: 35
@@ -573,7 +573,8 @@ widgets:
         alignment: "right"
         direction: "down"
       callbacks:
-          on_left: "toggle_brightness_menu"
+          on_right: "toggle_brightness_menu"
+          on_left: "toggle_level_next"
           # on_right: "toggle_group"
       label_shadow:
         enabled: true
