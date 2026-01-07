@@ -144,7 +144,7 @@ function Update-scoopSearch
 function Update-Cache
 {
     Write-Host "Rebuilding profile cache..." -ForegroundColor Cyan
-    Update-ohMyPosh-json
+    # Update-ohMyPosh-json
     Update-uv
     Update-uvx
     Update-scoopSearch
@@ -603,4 +603,4 @@ loadCachedSettingsFile -CachedFilePath "$cacheDir\uv-completion.ps1" -RequiredCo
 loadCachedSettingsFile -CachedFilePath "$cacheDir\uvx-completion.ps1" -RequiredCommand "uvx"
 # loadCachedSettingsFile -CachedFilePath "$cacheDir\posh-init.ps1" -RequiredCommand "oh-my-posh"
 
-oh-my-posh init pwsh --config "$themeCache" | Invoke-Expression
+# oh-my-posh init pwsh --config "$themeCache" | Invoke-Expression
