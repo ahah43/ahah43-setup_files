@@ -628,20 +628,17 @@ widgets:
 
   toggle-task-bar:
     type: "yasb.custom.CustomWidget"
-    # config_dir: "~/.config/yasb"
     options:
-      label: "<span>\ue62a</span>"
-      label_alt: "\ue62a"
+      label: "<span>\ueb6d</span>"
+      label_alt: "\ueb6d"
       tooltip: true
       tooltip_label: "Toggles Windows Task Bar"
       class_name: "toggle-task-bar-custom-widget"
       callbacks:
-        on_left: "exec pwsh -Command AutoHotkey $env:USERPROFILE\\.config\\yasb\\ahk_codes\\show_win_taskbar.ahk"
-        on_right: "exec pwsh -Command AutoHotkey $env:USERPROFILE\\.config\\yasb\\ahk_codes\\hide_win_taskbar.ahk"
-        # on_left: "exec pwsh -Command AutoHotkey $env:USERPROFILE\\.config\\yasb\\close_active_window.ahk"
+        on_left: "exec pwsh -Command AutoHotkey $env:USERPROFILE\\.config\\yasb\\ahk_codes\\taskBar_toggle.ahk"
+        on_right: "exec pwsh -Command AutoHotkey $env:USERPROFILE\\.config\\yasb\\ahk_codes\\taskBar_toggle.ahk"
   toggle-desktop:
     type: "yasb.custom.CustomWidget"
-    # config_dir: "~/.config/yasb"
     options:
       label: "<span>\uf108</span>"
       label_alt: "\uf108"
@@ -651,7 +648,6 @@ widgets:
       callbacks:
         on_left: "exec pwsh -Command AutoHotkey $env:USERPROFILE\\.config\\yasb\\ahk_codes\\showDesktop.ahk"
         on_right: "exec pwsh -Command AutoHotkey $env:USERPROFILE\\.config\\yasb\\ahk_codes\\showDesktop.ahk"
-        # on_left: "exec pwsh -Command AutoHotkey $env:USERPROFILE\\.config\\yasb\\close_active_window.ahk"
 
   notes:
     type: "yasb.notes.NotesWidget"
