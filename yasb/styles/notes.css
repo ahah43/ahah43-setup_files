@@ -16,7 +16,7 @@
 .notes-menu {
     min-width: 400px;
     max-width: 400px;
-    background-color: rgba(17, 17, 27, 0.4);
+    background-color: rgba(17, 17, 27, 0.9);
 }
 
 .notes-menu .note-item {
