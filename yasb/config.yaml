@@ -39,12 +39,8 @@ bars:
       right: 4
     widgets:
       left:
-      - "power_menu"
-      - "volume"
-      - "microphone"
-      - "brightness"
       - "pomodoro-todo-grouper"
-      - "notifications"
+      - "taskbar"
       # - "pomodoro"
       # - "todo"
       # - "home"
@@ -52,13 +48,14 @@ bars:
       # - "komorebi_active_layout"
       # - "active_window"
       center:
-      - "media"
-      - "taskbar"
       # - "disk"
+      - "media"
+      - "clock"
+      - "notifications"
       right:
       # - "weather"
       - "systeminfo-grouper"
-      - "clock"
+      - "std-tools-grouper"
       - "close_active_window"
 widgets:
   home:
@@ -485,6 +482,17 @@ widgets:
         "battery"
       ]
 
+  std-tools-grouper:
+    type: "yasb.grouper.GrouperWidget"
+    options:
+      class_name: "systeminfo-grouper"
+      widgets: [
+        "volume",
+        "microphone",
+        "brightness",
+        "power_menu",
+      ]
+
   pomodoro-todo-grouper:
     type: "yasb.grouper.GrouperWidget"
     options:
@@ -603,8 +611,8 @@ widgets:
     type: "yasb.custom.CustomWidget"
     # config_dir: "~/.config/yasb"
     options:
-      label: "<span>\uf00d</span>"
-      label_alt: "\uf00d"
+      label: "<span>\uee15</span>"
+      label_alt: "\uee15"
       tooltip: true
       tooltip_label: "Close active window"
       class_name: "close-app-custom-widget"
