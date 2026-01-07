@@ -491,7 +491,8 @@ widgets:
       class_name: "systeminfo-grouper"
       widgets: [
         "pomodoro",
-        "todo"
+        "todo",
+        "notes"
       ]
 
 
@@ -609,3 +610,35 @@ widgets:
       class_name: "custom-widget"
       callbacks:
         on_left: "exec pwsh -Command AutoHotkey.exe $env:USERPROFILE\\.config\\yasb\\close_active_window.ahk"
+
+
+  notes:
+    type: "yasb.notes.NotesWidget"
+    options:
+      label: "<span>\udb82\udd0c</span> {count}"
+      label_alt: "{count} notes"
+      # data_path: "~/Documents/my-notes.json"  # Optional: custom JSON file path
+      menu:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "System"
+        alignment: "right"
+        direction: "down"
+        offset_top: 6
+        offset_left: 0
+        max_title_size: 150
+        show_date_time: true
+      icons:
+        note: "\udb82\udd0c"
+        delete: "\ueab8"
+        copy: "\uebcc"
+      callbacks:
+        on_left: "toggle_menu"
+        on_middle: "do_nothing"
+        on_right: "toggle_label"
+      label_shadow:
+        enabled: true
+        color: "black"
+        radius: 3
+        offset: [ 1, 1 ]
