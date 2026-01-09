@@ -2,16 +2,17 @@
 theme = "tokyonight_storm"
 
 [editor]
-line-number = "relative"
-mouse = false
 auto-completion=true
 auto-save=true
 auto-format=true
-text-width=80
+bufferline="always"
 gutters = ["diff", "diagnostics", "line-numbers", "spacer"]
+line-number = "relative"
+mouse = false
 soft-wrap.enable = true
 soft-wrap.max-indent-retain=80
-bufferline="always"
+text-width=90
+true-color = true
 
 [editor.cursor-shape]
 insert = "bar"
@@ -22,7 +23,7 @@ hidden = false
 [editor.statusline]
 left = ["mode", "spinner", "file-modification-indicator", "read-only-indicator"]
 center = ["file-name"]
-right = ["diagnostics", "register", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+right = ["diagnostics", "register", "selections", "position","total-line-numbers","file-encoding", "file-line-ending", "file-type"]
 separator = "│"
 mode.normal = "LOCKED"
 mode.insert = "WORKING"
@@ -32,16 +33,42 @@ mode.select = "VISUAL SEL"
 enable=true
 auto-signature-help=true
 display-messages = true
+display-inlay-hints = true
 
 [editor.indent-guides]
 render = true
 character = "┊"
 skip-levels = 1
 
+[editor.inline-diagnostics]
+cursor-line = "hint"
+
+# [keys]
+# [keys.language.rust]
+# "C-S-r" = ":run-shell cargo run"
+
+[keys.normal."backspace"]
+r = ":sh cargo run --release"
+b = ":sh cargo build --release"
+c = ":config-open"
+d = ":config-reload"
+n = ["select_all","yank",":new","paste_before"]
+p = [":sh py %{buffer_name}"]
+g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]
+y = [":new", ":insert-output yazi", ":buffer-close!", ":redraw"]
 # At most one section each of 'keys.normal', 'keys.insert' and 'keys.select'
 [keys.normal]
-"A-k" = [ "extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before" ]
+# "=" = ":echo Ahmed Hassan"
+# "=" = "format_selections"
+"=" = ":format"
+"A-s"= ":w" # Maps Ctrl-s to the typable command :w which is an alias for :write (save file)
+"C-q" = ":write-buffer-close"
+"C-Q" = ":write-buffer-close!"
+"A-q" = ":buffer-close"
+"A-Q" = ":buffer-close!"
+
 "A-j" = [ "extend_to_line_bounds", "delete_selection", "paste_after" ]
+"A-k" = [ "extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before" ]
 
 "A-C-k" = [ "extend_to_line_bounds", "yank", "paste_before" ]
 "A-C-j" = [ "extend_to_line_bounds", "yank", "paste_after" ]
@@ -52,19 +79,34 @@ skip-levels = 1
 "C-k" = [ "move_line_up", "scroll_up" ]
 "C-j" = [ "move_line_down", "scroll_down" ]
 
-C-s = ":w" # Maps Ctrl-s to the typable command :w which is an alias for :write (save file)
-g = { a = "code_action" } # Maps `ga` to show possible code actions
+# g = { a = "code_action" } # Maps `ga` to show possible code actions
 "ret" = ["open_below", "normal_mode"] # Maps the enter key to open_below then re-enter normal mode
 "esc" = ["collapse_selection", "keep_primary_selection"]
 # " " = {B = "file_picker_in_current_buffer_directory"}
+# https://gist.github.com/Schr3da/4767e436f2cc47c5d23fc05745fd6d03
+"<" = "match_brackets"
+"+" = ["move_char_right", "move_prev_word_start", "move_next_word_end", "search_selection", "search_next"]
+"-" = ["move_char_right", "move_prev_word_start", "move_next_word_end", "search_selection", "search_prev"]
+"$" = "goto_line_end"
+# 0 = "goto_line_start"
+# G = "goto_file_end"
+# 
+# "C-g" = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]
+"A-d" = "kill_to_line_end"
+"A-x" = "kill_to_line_start"
+
+
+
 
 [keys.insert]
-"A-x" = "normal_mode"     # Maps Alt-X to enter normal mode
+"A-d" = "kill_to_line_end"
+"A-x" = "kill_to_line_start"
+# "A-x" = "normal_mode"     # Maps Alt-X to enter normal mode
 
 [keys.normal.space]
-"B" = "file_picker_in_current_buffer_directory"
+l = ":toggle lsp.display-inlay-hints"
 
-
+# [keys.normal]
 
 # [keys.normal]
 # "C-S-b" = ":run-shell cargo build"

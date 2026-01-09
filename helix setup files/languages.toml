@@ -1,36 +1,14 @@
 [[language]]
-name = "rust"
-auto-format = true
-
-roots = [
-  "Cargo.toml",
-  "Cargo.lock"
-]
-
-[language.auto-pairs]
-'(' = ')'
-'{' = '}'
-'[' = ']'
-'"' = '"'
-'`' = '`'
-
-[language-server.rust-analyzer.cargo]
-features = "all"
-
-[language-server.rust-analyzer]
-command = "rust-analyzer"
-
-[language-server.rust-analyzer.config.check]
-command = "clippy"
+name = "lua"
+shebangs = ["lua", "luajit"]
+roots = [".luarc.json", ".luacheckrc", ".stylua.toml", "selene.toml", ".git"]
+language-servers = [ "C:\\Users\\AHAH43\\AppData\\Local\\nvim-data\\mason\\packages\\lua-language-server\\bin\\lua-language-server.exe" ]
 
 
-[language-server.rust-analyzer.config]
-cargo.features = "all"
-inlayHints.bindingModeHints.enable = false
-inlayHints.closingBraceHints.minLines = 10
-inlayHints.closureReturnTypeHints.enable = "with_block"
-inlayHints.discriminantHints.enable = "fieldless"
-inlayHints.lifetimeElisionHints.enable = "skip_trivial"
-inlayHints.typeHints.hideClosureInitialization = false
+[[language]]
+name = "python"
+language-servers = ["ty", "ruff", "jedi", "pyright"]# "pylsp"]
 
-
+[[grammar]]
+name = "python"
+source = { git = "https://github.com/tree-sitter/tree-sitter-python", rev = "293fdc02038ee2bf0e2e206711b69c90ac0d413f" }
