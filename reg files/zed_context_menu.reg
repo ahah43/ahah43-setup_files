@@ -1,0 +1,25 @@
+Windows Registry Editor Version 5.00
+
+; --- Right-click on a File ---
+[HKEY_CURRENT_USER\Software\Classes\*\shell\Open with Zed]
+@="Open with &Zed"
+"Icon"="C:\\Users\\AHAH43\\scoop\\apps\\zed\\current\\zed.exe"
+
+[HKEY_CURRENT_USER\Software\Classes\*\shell\Open with Zed\command]
+@="\"C:\\Users\\AHAH43\\scoop\\apps\\zed\\current\\zed.exe\" \"%1\""
+
+; --- Right-click on a Folder ---
+[HKEY_CURRENT_USER\Software\Classes\Directory\shell\Open with Zed]
+@="Open with &Zed"
+"Icon"="C:\\Users\\AHAH43\\scoop\\apps\\zed\\current\\zed.exe"
+
+[HKEY_CURRENT_USER\Software\Classes\Directory\shell\Open with Zed\command]
+@="\"C:\\Users\\AHAH43\\scoop\\apps\\zed\\current\\zed.exe\" \"%V\""
+
+; --- Right-click on Directory Background (Inside a folder) ---
+[HKEY_CURRENT_USER\Software\Classes\Directory\Background\shell\Open with Zed]
+@="Open with &Zed"
+"Icon"="C:\\Users\\AHAH43\\scoop\\apps\\zed\\current\\zed.exe"
+
+[HKEY_CURRENT_USER\Software\Classes\Directory\Background\shell\Open with Zed\command]
+@="\"C:\\Users\\AHAH43\\scoop\\apps\\zed\\current\\zed.exe\" \"%V\""

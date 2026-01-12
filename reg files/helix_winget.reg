@@ -1,0 +1,25 @@
+Windows Registry Editor Version 5.00
+
+; --- Right-click on a File ---
+[HKEY_CURRENT_USER\Software\Classes\*\shell\Open with Helix]
+@="Open with &Helix"
+"Icon"="C:\\Users\\AHAH43\\AppData\\Local\\Microsoft\\WinGet\\Links\\hx.exe"
+
+[HKEY_CURRENT_USER\Software\Classes\*\shell\Open with Helix\command]
+@="\"C:\\Users\\AHAH43\\AppData\\Local\\Microsoft\\WinGet\\Links\\hx.exe\" \"%1\""
+
+; --- Right-click on a Folder ---
+[HKEY_CURRENT_USER\Software\Classes\Directory\shell\Open with Helix]
+@="Open with &Helix"
+"Icon"="C:\\Users\\AHAH43\\AppData\\Local\\Microsoft\\WinGet\\Links\\hx.exe"
+
+[HKEY_CURRENT_USER\Software\Classes\Directory\shell\Open with Helix\command]
+@="\"C:\\Users\\AHAH43\\AppData\\Local\\Microsoft\\WinGet\\Links\\hx.exe\" \"%V\""
+
+; --- Right-click on Directory Background ---
+[HKEY_CURRENT_USER\Software\Classes\Directory\Background\shell\Open with Helix]
+@="Open with &Helix"
+"Icon"="C:\\Users\\AHAH43\\AppData\\Local\\Microsoft\\WinGet\\Links\\hx.exe"
+
+[HKEY_CURRENT_USER\Software\Classes\Directory\Background\shell\Open with Helix\command]
+@="\"C:\\Users\\AHAH43\\AppData\\Local\\Microsoft\\WinGet\\Links\\hx.exe\" \"%V\""

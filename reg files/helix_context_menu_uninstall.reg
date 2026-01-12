@@ -1,0 +1,10 @@
+Windows Registry Editor Version 5.00
+
+[-HKEY_CURRENT_USER\Software\Classes\*\shell\Open with Helix]
+[-HKEY_CURRENT_USER\Software\Classes\*\shell\Open with Helix\command]
+
+[-HKEY_CURRENT_USER\Software\Classes\Directory\shell\Open with Helix]
+[-HKEY_CURRENT_USER\Software\Classes\Directory\shell\Open with Helix\command]
+
+[-HKEY_CURRENT_USER\Software\Classes\Directory\Background\shell\Open with Helix]
+[-HKEY_CURRENT_USER\Software\Classes\Directory\Background\shell\Open with Helix\command]
