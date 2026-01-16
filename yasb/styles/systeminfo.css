@@ -2,14 +2,14 @@
     /* The name of the css class is the name given in the config */
     background-color: rgba(46, 52, 64, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    margin: 4 0px;
+    margin: 1 0px;
     border-radius: 12px;
 }
 
 .systeminfo-grouper .grouper-button {
     font-size: 12px;
     color: #ffffff;
-    padding: 0 8px;
+    padding: 0 0px;
     background-color: transparent;
     border: none;
 }

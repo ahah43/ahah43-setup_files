@@ -43,7 +43,7 @@ For more information about configuration options, please visit the Wiki https://
 
 
 .widget {
-    padding: 0 12px;
+    padding: 0 6px;
     margin: 0;
 }
 
@@ -52,7 +52,7 @@ For more information about configuration options, please visit the Wiki https://
 }
 
 .widget .label {
-    padding: 0px 2px;
+    padding: 0px 1px;
 }
 
 
@@ -82,3 +82,4 @@ For more information about configuration options, please visit the Wiki https://
 @import "styles/systeminfo.css";
 @import "styles/close-app-custom-widget.css";
 @import "styles/toggle-task-bar-custom-widget.css";
+@import "styles/traffic.css";
