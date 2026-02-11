@@ -1,0 +1,20 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Classes\*\shell\Open with &Antigravity]
+@="Open with &Antigravity"
+"Icon"="C:\\Users\\Ahmed.H\\scoop\\apps\\antigravity\\current\\Antigravity.exe"
+
+[HKEY_CURRENT_USER\Software\Classes\*\shell\Open with &Antigravity\command]
+@="\"C:\\Users\\Ahmed.H\\scoop\\apps\\antigravity\\current\\Antigravity.exe\" \"%1\""
+
+[HKEY_CURRENT_USER\Software\Classes\Directory\shell\Open with &Antigravity]
+@="Open with &Antigravity"
+"Icon"="C:\\Users\\Ahmed.H\\scoop\\apps\\antigravity\\current\\Antigravity.exe"
+[HKEY_CURRENT_USER\Software\Classes\Directory\shell\Open with &Antigravity\command]
+@="\"C:\\Users\\Ahmed.H\\scoop\\apps\\antigravity\\current\\Antigravity.exe\" \"%V\""
+
+[HKEY_CURRENT_USER\Software\Classes\Directory\Background\shell\Open with &Antigravity]
+@="Open with &Antigravity"
+"Icon"="C:\\Users\\Ahmed.H\\scoop\\apps\\antigravity\\current\\Antigravity.exe"
+[HKEY_CURRENT_USER\Software\Classes\Directory\Background\shell\Open with &Antigravity\command]
+@="\"C:\\Users\\Ahmed.H\\scoop\\apps\\antigravity\\current\\Antigravity.exe\" \"%V\""

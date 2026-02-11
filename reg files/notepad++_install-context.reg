@@ -1,0 +1,19 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Classes\*\shell\Open with &Notepad++]
+@="Open with &Notepad++"
+"Icon"="C:\\Users\\Ahmed.H\\scoop\\apps\\notepadplusplus\\current\\notepad++.exe"
+[HKEY_CURRENT_USER\Software\Classes\*\shell\Open with &Notepad++\command]
+@="\"C:\\Users\\Ahmed.H\\scoop\\apps\\notepadplusplus\\current\\notepad++.exe\" \"%1\""
+
+[HKEY_CURRENT_USER\Software\Classes\Directory\shell\Open with &Notepad++]
+@="Open with &Notepad++"
+"Icon"="C:\\Users\\Ahmed.H\\scoop\\apps\\notepadplusplus\\current\\notepad++.exe"
+[HKEY_CURRENT_USER\Software\Classes\Directory\shell\Open with &Notepad++\command]
+@="\"C:\\Users\\Ahmed.H\\scoop\\apps\\notepadplusplus\\current\\notepad++.exe\" \"%1\""
+
+[HKEY_CURRENT_USER\Software\Classes\Directory\Background\shell\Open with &Notepad++]
+@="Open with &Notepad++"
+"Icon"="C:\\Users\\Ahmed.H\\scoop\\apps\\notepadplusplus\\current\\notepad++.exe"
+[HKEY_CURRENT_USER\Software\Classes\Directory\Background\shell\Open with &Notepad++\command]
+@="\"C:\\Users\\Ahmed.H\\scoop\\apps\\notepadplusplus\\current\\notepad++.exe\" \"%V\""
