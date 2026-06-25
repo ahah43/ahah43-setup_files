@@ -59,6 +59,29 @@ if ($psrl.Version -ge [version]'2.2.2') {
     Set-PSReadLineOption -MaximumHistoryCount 10000
 }
 
+# Using eza instead of ls
+if (Get-Command eza -ErrorAction SilentlyContinue) {
+    function ls { eza --icons=always $args } # Bypasses built-in alias locks
+    function ll { eza -l --icons=always --group-directories-first $args }
+    function la { eza -la --icons=always --group-directories-first $args }
+    function tree { eza --tree --icons=always $args } 
+}
+
+# use zoxide cache
+if (Test-Path "$cacheDir\zoxide.ps1") { . "$cacheDir\zoxide.ps1" }
+
+
+# --- PSFzf Configuration ---
+if (Get-Module -ListAvailable -Name PSFzf) {
+    Import-Module PSFzf
+    
+    # Bind standard fzf shortcuts
+    Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
+    
+    # Optional: If you want to use Alt+c to quickly find and cd into a directory
+    # Set-PsFzfOption -PSReadlineChordProviderDirectory 'Alt+c'
+}
+
 # --- Custom Functions ---
 
 function psRestart {
@@ -119,3 +142,17 @@ function findES {
     }
     es.exe $Query
 }
+
+# This is a classic terminal addition. It creates a new directory and immediately moves you into it, saving you an extra cd command.
+function mkcd {
+    param([Parameter(Mandatory=$true)][string]$Path)
+    New-Item -Path $Path -ItemType Directory -Force | Out-Null
+    Set-Location $Path
+}
+
+# Reload the profile instantly in the current session
+function reloadPS { 
+    . $PROFILE
+    Write-Host "Profile reloaded!" -ForegroundColor Green
+}
+
