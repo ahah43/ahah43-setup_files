@@ -64,6 +64,30 @@
           "type": "dotnet"
         },
         {
+          "background": "#68A063",
+          "foreground": "#ffffff",
+          "powerline_symbol": "\ue0c4",
+          "style": "powerline",
+          "template": " \ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} ",
+          "type": "node"
+        },
+        {
+          "background": "#FFDE57",
+          "foreground": "#4584B6",
+          "powerline_symbol": "\ue0c4",
+          "style": "powerline",
+          "template": " \ue235 {{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }} ",
+          "type": "python"
+        },
+        {
+          "background": "#FF9800",
+          "foreground": "#ffffff",
+          "powerline_symbol": "\ue0c4",
+          "style": "powerline",
+          "template": " \uf2db {{ round .PhysicalPercentUsed 0 }}% ",
+          "type": "sysinfo"
+        },
+        {
           "background": "#8800dd",
           "foreground": "#ffffff",
           "powerline_symbol": "\ue0c4",
