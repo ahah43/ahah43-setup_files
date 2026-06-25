@@ -64,7 +64,7 @@ if (Get-Command eza -ErrorAction SilentlyContinue) {
     function ls { eza --icons=always $args } # Bypasses built-in alias locks
     function ll { eza -l --icons=always --group-directories-first $args }
     function la { eza -la --icons=always --group-directories-first $args }
-    function tree { eza --tree --icons=always $args } 
+    function tree { eza --tree --icons=always $args }
 }
 
 # use zoxide cache
@@ -74,10 +74,10 @@ if (Test-Path "$cacheDir\zoxide.ps1") { . "$cacheDir\zoxide.ps1" }
 # --- PSFzf Configuration ---
 if (Get-Module -ListAvailable -Name PSFzf) {
     Import-Module PSFzf
-    
+
     # Bind standard fzf shortcuts
     Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
-    
+
     # Optional: If you want to use Alt+c to quickly find and cd into a directory
     # Set-PsFzfOption -PSReadlineChordProviderDirectory 'Alt+c'
 }
@@ -151,8 +151,45 @@ function mkcd {
 }
 
 # Reload the profile instantly in the current session
-function reloadPS { 
+function reloadPS {
     . $PROFILE
     Write-Host "Profile reloaded!" -ForegroundColor Green
 }
 
+# --- Ultra-Fast Tool Caching ---
+
+# Function to manually force a cache rebuild when you update your tools
+function Update-TerminalCache {
+    Write-Host "Rebuilding terminal cache (this takes a second)..." -ForegroundColor Cyan
+
+    if (-not (Test-Path $cacheDir)) { New-Item -ItemType Directory -Path $cacheDir -Force | Out-Null }
+
+    # 1. uv and uvx completions
+    if (Get-Command uv -ErrorAction SilentlyContinue) {
+        uv generate-shell-completion powershell > "$cacheDir\uv.ps1"
+        uvx --generate-shell-completion powershell > "$cacheDir\uvx.ps1"
+    }
+
+    # 2. scoop-search hook
+    if (Get-Command scoop-search -ErrorAction SilentlyContinue) {
+        scoop-search --hook > "$cacheDir\scoop-search.ps1"
+    }
+
+    # 3. Oh My Posh init (Replace the config path with your custom theme if needed)
+    if (Get-Command oh-my-posh -ErrorAction SilentlyContinue) {
+        oh-my-posh init pwsh --config "$HOME\Documents\ahah43-blue-owl.omp.json" > "$cacheDir\omp.ps1"
+    }
+
+    Write-Host "Cache generated! Run 'reloadPS' to apply." -ForegroundColor Green
+}
+
+# Auto-run the cache builder if it's your first time or files are missing
+if (-not (Test-Path "$cacheDir\uv.ps1")) {
+    Update-TerminalCache
+}
+
+# --- Load Cached Files Instantly ---
+if (Test-Path "$cacheDir\uv.ps1") { . "$cacheDir\uv.ps1" }
+if (Test-Path "$cacheDir\uvx.ps1") { . "$cacheDir\uvx.ps1" }
+if (Test-Path "$cacheDir\scoop-search.ps1") { . "$cacheDir\scoop-search.ps1" }
+if (Test-Path "$cacheDir\omp.ps1") { . "$cacheDir\omp.ps1" }
