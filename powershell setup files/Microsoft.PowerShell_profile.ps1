@@ -180,6 +180,11 @@ function Update-TerminalCache {
         oh-my-posh init pwsh --config "$HOME\Documents\ahah43-blue-owl.omp.json" > "$cacheDir\omp.ps1"
     }
 
+    # 4. GitHub CLI completions
+    if (Get-Command gh -ErrorAction SilentlyContinue) {
+        gh completion -s powershell > "$cacheDir\gh.ps1"
+    }
+
     Write-Host "Cache generated! Run 'reloadPS' to apply." -ForegroundColor Green
 }
 
@@ -193,3 +198,4 @@ if (Test-Path "$cacheDir\uv.ps1") { . "$cacheDir\uv.ps1" }
 if (Test-Path "$cacheDir\uvx.ps1") { . "$cacheDir\uvx.ps1" }
 if (Test-Path "$cacheDir\scoop-search.ps1") { . "$cacheDir\scoop-search.ps1" }
 if (Test-Path "$cacheDir\omp.ps1") { . "$cacheDir\omp.ps1" }
+if (Test-Path "$cacheDir\gh.ps1") { . "$cacheDir\gh.ps1" }
