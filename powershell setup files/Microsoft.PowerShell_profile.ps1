@@ -67,9 +67,6 @@ if (Get-Command eza -ErrorAction SilentlyContinue) {
     function tree { eza --tree --icons=always $args }
 }
 
-# use zoxide cache
-if (Test-Path "$cacheDir\zoxide.ps1") { . "$cacheDir\zoxide.ps1" }
-
 
 # --- PSFzf Configuration ---
 if (Get-Module -ListAvailable -Name PSFzf) {
@@ -79,7 +76,7 @@ if (Get-Module -ListAvailable -Name PSFzf) {
     Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
 
     # Optional: If you want to use Alt+c to quickly find and cd into a directory
-    # Set-PsFzfOption -PSReadlineChordProviderDirectory 'Alt+c'
+    Set-PsFzfOption -PSReadlineChordProviderDirectory 'Alt+c'
 }
 
 # --- Custom Functions ---
@@ -184,6 +181,12 @@ function Update-TerminalCache {
     if (Get-Command gh -ErrorAction SilentlyContinue) {
         gh completion -s powershell > "$cacheDir\gh.ps1"
     }
+    
+    # 5. Zoxide (The missing piece!)
+    if (Get-Command zoxide -ErrorAction SilentlyContinue) {
+    #        zoxide init powershell > "$cacheDir\zoxide.ps1"
+        zoxide init powershell | Out-File -FilePath "$cacheDir\zoxide.ps1" -Encoding utf8
+    }
 
     Write-Host "Cache generated! Run 'reloadPS' to apply." -ForegroundColor Green
 }
@@ -199,3 +202,6 @@ if (Test-Path "$cacheDir\uvx.ps1") { . "$cacheDir\uvx.ps1" }
 if (Test-Path "$cacheDir\scoop-search.ps1") { . "$cacheDir\scoop-search.ps1" }
 if (Test-Path "$cacheDir\omp.ps1") { . "$cacheDir\omp.ps1" }
 if (Test-Path "$cacheDir\gh.ps1") { . "$cacheDir\gh.ps1" }
+
+# if (Test-Path "$cacheDir\zoxide.ps1") { . "$cacheDir\zoxide.ps1" }
+if (Test-Path "$cacheDir\zoxide.ps1") { Invoke-Expression (Get-Content "$cacheDir\zoxide.ps1" -Raw) }
