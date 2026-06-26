@@ -122,7 +122,7 @@ widgets:
         offset: [ 1, 1 ]
       scrolling_label:
         enabled: true
-        update_interval_ms: 50
+        update_interval_ms: 200
         style: "left"  # can be "left", "right", "bounce", "bounce-ease"
         separator: " | "
         label_padding: 1
@@ -635,8 +635,10 @@ widgets:
       tooltip_label: "Close active window"
       class_name: "close-app-custom-widget"
       callbacks:
-        on_left: "exec pwsh -Command AutoHotkey $env:USERPROFILE\\.config\\yasb\\ahk_codes\\close_active_window.ahk"
-        on_right: "exec pwsh -Command AutoHotkey $env:USERPROFILE\\.config\\yasb\\ahk_codes\\close_active_window.ahk"
+        #on_left: "exec pwsh -Command AutoHotkey $env:USERPROFILE\\.config\\yasb\\ahk_codes\\close_active_window.ahk"
+        #on_right: "exec pwsh -Command AutoHotkey $env:USERPROFILE\\.config\\yasb\\ahk_codes\\close_active_window.ahk"
+        on_left: "exec AutoHotkey.exe %USERPROFILE%\\.config\\yasb\\ahk_codes\\close_active_window.ahk"
+        on_right: "exec AutoHotkey.exe %USERPROFILE%\\.config\\yasb\\ahk_codes\\close_active_window.ahk"
         # on_left: "powershell nircmd win close foreground"
 
   toggle-task-bar:
@@ -648,8 +650,8 @@ widgets:
       tooltip_label: "Toggles Windows Task Bar"
       class_name: "toggle-task-bar-custom-widget"
       callbacks:
-        on_left: "exec pwsh -Command AutoHotkey $env:USERPROFILE\\.config\\yasb\\ahk_codes\\taskBar_toggle.ahk"
-        on_right: "exec pwsh -Command AutoHotkey $env:USERPROFILE\\.config\\yasb\\ahk_codes\\taskBar_toggle.ahk"
+        on_left: "exec AutoHotkey.exe %USERPROFILE%\\.config\\yasb\\ahk_codes\\taskBar_toggle.ahk"
+        on_right: "exec AutoHotkey.exe %USERPROFILE%\\.config\\yasb\\ahk_codes\\taskBar_toggle.ahk"
   toggle-desktop:
     type: "yasb.custom.CustomWidget"
     options:
@@ -659,8 +661,8 @@ widgets:
       tooltip_label: "Toggles Windows Task Bar"
       class_name: "toggle-task-bar-custom-widget"
       callbacks:
-        on_left: "exec pwsh -Command AutoHotkey $env:USERPROFILE\\.config\\yasb\\ahk_codes\\desktopShow.ahk"
-        on_right: "exec pwsh -Command AutoHotkey $env:USERPROFILE\\.config\\yasb\\ahk_codes\\desktopShow.ahk"
+        on_left: "exec AutoHotkey.exe %USERPROFILE%\\.config\\yasb\\ahk_codes\\desktopShow.ahk"
+        on_right: "exec AutoHotkey.exe %USERPROFILE%\\.config\\yasb\\ahk_codes\\desktopShow.ahk"
 
   notes:
     type: "yasb.notes.NotesWidget"
